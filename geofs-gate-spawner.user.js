@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         GeoFS Gate Spawner
-// @namespace    https://github.com/yourname/geofs-gate-spawner
-// @version      1.0.0
-// @description  Pick an airport and gate, spawn parked right there with GeoFS's own URL spawn params.
-// @author       you
+// @namespace    https://github.com/machpoint82/geofs-gate-spawner
+// @version      1.1.0
+// @description  Pick an airport and gate (or just type the gate number), spawn parked right there.
+// @author       machpoint82
 // @match        https://www.geo-fs.com/geofs.php*
 // @match        https://*.geo-fs.com/geofs.php*
 // @grant        GM_xmlhttpRequest
@@ -16,16 +16,12 @@
     'use strict';
 
     // ------------------------------------------------------------------
-    // CONFIG — point this at wherever you host the gates.json produced
-    // by geofs_gate_extractor.py (a GitHub raw link is the easiest way).
-    // If you'd rather not host it anywhere yet, leave GATES_URL empty
-    // and use the EMBEDDED_SAMPLE below to test the UI.
+    // Your gate database, hosted on GitHub.
     // ------------------------------------------------------------------
-    const GATES_URL = ''; // e.g. 'https://raw.githubusercontent.com/you/repo/main/gates.json'
+    const GATES_URL = 'https://raw.githubusercontent.com/machpoint82/geofs-gate-spawner/refs/heads/main/gates.json';
 
-    // Placeholder/demo data so the panel works out of the box.
-    // Replace by running geofs_gate_extractor.py on real apt.dat files —
-    // these coordinates are NOT verified real-world gate positions.
+    // Used only if the fetch above fails for some reason (offline, repo
+    // down, typo in URL, etc) so the panel doesn't just break.
     const EMBEDDED_SAMPLE = {
         "TEST": [
             { "name": "A1 (demo)", "lat": 51.4706123, "lon": -0.4548210, "heading": 273, "type": "gate" },
@@ -36,11 +32,6 @@
     let gatesDB = {};
 
     function loadGates() {
-        if (!GATES_URL) {
-            gatesDB = EMBEDDED_SAMPLE;
-            populateAirportList();
-            return;
-        }
         GM_xmlhttpRequest({
             method: 'GET',
             url: GATES_URL,
@@ -68,7 +59,7 @@
             position: fixed; top: 60px; right: 10px; z-index: 999999;
             background: rgba(20,20,20,0.92); color: #fff; padding: 10px;
             border-radius: 8px; font-family: sans-serif; font-size: 13px;
-            width: 230px; box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+            width: 240px; box-shadow: 0 2px 8px rgba(0,0,0,0.5);
         `;
         panel.innerHTML = `
             <div style="font-weight:bold; margin-bottom:6px; display:flex; justify-content:space-between; align-items:center;">
@@ -77,15 +68,28 @@
             </div>
             <div id="gs-body">
                 <select id="gs-airport" style="width:100%; margin-bottom:6px;"><option>Loading…</option></select>
-                <select id="gs-gate" style="width:100%; margin-bottom:6px;"><option>--</option></select>
+                <input id="gs-search" type="text" placeholder="Type gate number, e.g. 209R"
+                       style="width:100%; margin-bottom:6px; box-sizing:border-box; padding:4px;" />
+                <select id="gs-gate" size="6" style="width:100%; margin-bottom:6px;"></select>
                 <button id="gs-spawn" style="width:100%; padding:5px; cursor:pointer;">Spawn at gate</button>
                 <div id="gs-status" style="margin-top:6px; opacity:0.7; font-size:11px;"></div>
             </div>
         `;
         document.body.appendChild(panel);
 
-        document.getElementById('gs-airport').addEventListener('change', populateGateList);
+        document.getElementById('gs-airport').addEventListener('change', () => populateGateList());
         document.getElementById('gs-spawn').addEventListener('click', spawnAtSelectedGate);
+        document.getElementById('gs-search').addEventListener('input', () => populateGateList());
+        document.getElementById('gs-search').addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                // Jump straight to the first match and spawn — fast path for event day.
+                const gateSel = document.getElementById('gs-gate');
+                if (gateSel.options.length > 0) {
+                    gateSel.selectedIndex = 0;
+                    spawnAtSelectedGate();
+                }
+            }
+        });
         document.getElementById('gs-collapse').addEventListener('click', () => {
             const body = document.getElementById('gs-body');
             const collapsed = body.style.display === 'none';
@@ -113,14 +117,27 @@
 
     function populateGateList() {
         const icao = document.getElementById('gs-airport').value;
+        const query = document.getElementById('gs-search').value.trim().toLowerCase();
         const gateSel = document.getElementById('gs-gate');
         gateSel.innerHTML = '';
-        (gatesDB[icao] || []).forEach((gate, idx) => {
+
+        const gates = gatesDB[icao] || [];
+        const filtered = query
+            ? gates.filter(g => g.name.toLowerCase().includes(query))
+            : gates;
+
+        filtered.forEach((gate) => {
             const opt = document.createElement('option');
-            opt.value = idx;
+            // store the gate's real index in the unfiltered array so
+            // spawnAtSelectedGate() always looks up the right object
+            opt.value = gates.indexOf(gate);
             opt.textContent = `${gate.name} (${gate.type})`;
             gateSel.appendChild(opt);
         });
+
+        if (filtered.length > 0) {
+            gateSel.selectedIndex = 0;
+        }
     }
 
     function getCurrentAircraft() {

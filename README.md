@@ -24,14 +24,13 @@ Adds a small in-game panel to GeoFS where you can pick an airport and gate/stand
 - Real gate/stand coordinates and headings sourced from X-Plane's open airport database
 - Search box — type a gate number and hit **Enter** to jump straight there
 - Filters for Code F (A380/747), Code E (777/787), heavy-capable, cargo, and general aviation stands
-- The panel lives as a small always-visible header bar in the corner — click it to expand/collapse. No setup required.
-- Optional keyboard shortcut — click the ⚙ if you'd like to assign your own key combo to toggle the panel instead of clicking it. Nothing is set by default, so pick a combo your browser/extensions aren't already using.
+- The panel lives as a small square always-visible in the bottom right corner — click it to expand/collapse. No setup required.
 - Auto-updates through Tampermonkey once installed
 - Best-effort anti-creep fix: automatically holds the parking brake for a few seconds after spawning, since some gates can have the aircraft roll forward slightly before physics settles
 
 ## Current airport coverage
 
-**Right now this only covers [18 airports](airports.txt)** More airports will be added over time — check back on this repo for updates, and the script will auto-update itself once new airports are added to [`gates.json`](gates.json).
+**Right now this only covers [104 airports](airports.txt)** More airports will be added over time — check back on this repo for updates, and the script will auto-update itself once new airports are added to [`gates.json`](gates.json).
 
 A couple of honesty notes while we're at it:
 - Gate coordinates come from open, community-maintained airport data, not an official survey — the vast majority line up correctly, but a small number of stands may be positioned slightly off, or the aircraft may creep forward a little after spawning before settling. If you spot one that's clearly wrong, please open an issue with the gate name so it can be fixed.
@@ -41,16 +40,15 @@ A couple of honesty notes while we're at it:
 
 1. Install [Tampermonkey](https://www.tampermonkey.net/) for your browser.
 2. Click on `geofs-gate-spawner.user.js` in this repo, then click **Raw** — Tampermonkey will prompt you to install it.
-3. Open GeoFS. A small "Gate Spawner" bar appears in the top-right corner — click it to expand the panel.
+3. Open GeoFS. A small icon appears in the bottom-right corner — click it to expand the panel.
 
 ## How to use it
 
-1. Click the "Gate Spawner" header bar to expand the panel.
+1. Click the "Gate Spawner" icon in the bottom right corner.
 2. Pick an airport.
 3. (Optional) Click a filter chip, e.g. **A380 / 747 (Code F)**, to only show stands that size aircraft can use.
 4. Type part of a gate number in the search box, or scroll the list.
 5. Click **Spawn at gate** (or press **Enter** in the search box to jump straight to the top match).
-6. (Optional) Click the ⚙ if you'd like to set your own keyboard shortcut to toggle the panel instead of clicking it.
 
 ## Contributing / reporting a bad gate
 

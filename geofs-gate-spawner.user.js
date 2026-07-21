@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         GeoFS Gate Spawner
 // @namespace    https://github.com/machpoint82/geofs-gate-spawner
-// @version      2.1.0
-// @description  Spawn parked at a real gate/stand at supported airports, with aircraft-category filters and a custom toggle shortcut.
+// @version      2.3.0
+// @description  Spawn parked at a real gate/stand at supported airports, with aircraft-category filters. Panel opens from a small always-visible tab; a keyboard shortcut is optional.
 // @author       machpoint82
 // @match        https://www.geo-fs.com/geofs.php*
 // @match        https://*.geo-fs.com/geofs.php*
@@ -24,7 +24,10 @@
     // CONFIG
     // ------------------------------------------------------------------
     const GATES_URL = 'https://raw.githubusercontent.com/machpoint82/geofs-gate-spawner/refs/heads/main/gates.json';
-    const DEFAULT_SHORTCUT = { alt: true, ctrl: false, shift: false, key: 'g' };
+    // No default shortcut is shipped or forced on anyone. The panel is
+    // always reachable via the small tab in the corner; a keyboard
+    // shortcut is entirely optional and only exists if the user sets
+    // one themselves via the gear icon.
 
     // Used only if the fetch fails (offline, repo down, typo in URL, etc).
     const EMBEDDED_SAMPLE = {
@@ -63,20 +66,21 @@
             backdrop-filter: blur(10px);
             box-shadow: 0 10px 30px rgba(0,0,0,0.45);
             overflow: hidden;
-            transition: opacity 0.15s ease, transform 0.15s ease;
         }
-        #gs-root.gs-hidden { display: none; }
         #gs-header {
             display: flex; align-items: center; gap: 8px;
-            padding: 10px 12px;
+            padding: 9px 10px;
             background: linear-gradient(120deg, #0f172a, #1d4ed8 60%, #06b6d4);
-            cursor: default;
+            cursor: pointer;
         }
-        #gs-header img { width: 20px; height: 20px; border-radius: 5px; }
+        #gs-header img { width: 22px; height: 22px; border-radius: 6px; flex-shrink: 0; }
         #gs-header .gs-title { font-weight: 600; font-size: 13px; flex: 1; letter-spacing: 0.2px; }
         #gs-header .gs-icon-btn { cursor: pointer; opacity: 0.85; font-size: 13px; padding: 2px 4px; }
         #gs-header .gs-icon-btn:hover { opacity: 1; }
+        #gs-chevron { font-size: 11px; opacity: 0.8; transition: transform 0.15s ease; }
+        #gs-root.gs-collapsed #gs-chevron { transform: rotate(-90deg); }
         #gs-body { padding: 10px 12px 12px; }
+        #gs-root.gs-collapsed #gs-body { display: none; }
         #gs-body label.gs-label { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.6px; opacity: 0.55; display: block; margin: 8px 0 4px; }
         #gs-body select, #gs-body input[type=text] {
             width: 100%; box-sizing: border-box; padding: 6px 8px;
@@ -153,17 +157,16 @@
                e.key.toLowerCase() === sc.key.toLowerCase();
     }
 
-    function openShortcutSetup(isReconfigure) {
+    function openShortcutSetup() {
         const overlay = document.createElement('div');
         overlay.id = 'gs-overlay';
         overlay.innerHTML = `
             <div id="gs-modal">
-                <h3>🔑 Set your toggle shortcut</h3>
-                <p>${isReconfigure ? 'Press a new key combination to show/hide the Gate Spawner panel.' :
-                    'Press the key combination you want to use to show/hide the Gate Spawner panel (e.g. Alt+G). It stays out of the way until you press it.'}</p>
+                <h3>🔑 Optional: set a toggle shortcut</h3>
+                <p>Press a key combination to use as a shortcut for opening/closing this panel (e.g. Ctrl+Shift+K). Pick something not already used by your browser or extensions. You can always open the panel from its tab instead, so this is entirely optional.</p>
                 <div id="gs-combo-display">Press a key…</div>
                 <button id="gs-save-shortcut" disabled>Save</button>
-                <button id="gs-skip-shortcut">Use default (Alt+G)</button>
+                <button id="gs-skip-shortcut">Cancel</button>
             </div>
         `;
         document.body.appendChild(overlay);
@@ -194,27 +197,90 @@
             GM_setValue('gs_shortcut', JSON.stringify(captured));
             cleanup();
             updateShortcutHint();
-            showPanel();
         });
 
         overlay.querySelector('#gs-skip-shortcut').addEventListener('click', () => {
-            shortcut = DEFAULT_SHORTCUT;
-            GM_setValue('gs_shortcut', JSON.stringify(DEFAULT_SHORTCUT));
             cleanup();
-            updateShortcutHint();
-            showPanel();
         });
+    }
+
+    function updateShortcutHint() {
+        const hint = document.getElementById('gs-shortcut-hint');
+        if (!hint) return;
+        hint.textContent = shortcut ? `Shortcut: ${formatShortcut(shortcut)}` : 'No shortcut set — click ⚙ to add one';
+    }
+
+    // ------------------------------------------------------------------
+    // DRAGGING
+    // ------------------------------------------------------------------
+    function makeDraggable(root, header) {
+        let dragging = false;
+        let moved = false;
+        let startX = 0, startY = 0, startRight = 0, startTop = 0;
+
+        try {
+            const savedPos = GM_getValue('gs_position', null);
+            if (savedPos) {
+                const pos = JSON.parse(savedPos);
+                root.style.top = pos.top + 'px';
+                root.style.right = pos.right + 'px';
+            }
+        } catch (e) { /* ignore, use CSS defaults */ }
+
+        header.addEventListener('mousedown', (e) => {
+            if (e.target.closest('#gs-reconfigure')) return;
+            dragging = true;
+            moved = false;
+            startX = e.clientX;
+            startY = e.clientY;
+            const rect = root.getBoundingClientRect();
+            startRight = window.innerWidth - rect.right;
+            startTop = rect.top;
+            header.style.cursor = 'grabbing';
+            e.preventDefault();
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!dragging) return;
+            const dx = e.clientX - startX;
+            const dy = e.clientY - startY;
+            if (Math.abs(dx) > 4 || Math.abs(dy) > 4) moved = true;
+            const newTop = Math.max(0, startTop + dy);
+            const newRight = Math.max(0, startRight - dx);
+            root.style.top = newTop + 'px';
+            root.style.right = newRight + 'px';
+        });
+
+        window.addEventListener('mouseup', () => {
+            if (!dragging) return;
+            dragging = false;
+            header.style.cursor = 'pointer';
+            if (moved) {
+                const rect = root.getBoundingClientRect();
+                const pos = { top: rect.top, right: window.innerWidth - rect.right };
+                GM_setValue('gs_position', JSON.stringify(pos));
+            }
+        });
+
+        // Suppress the toggle click that immediately follows a real drag,
+        // but let a plain click through untouched.
+        header.addEventListener('click', (e) => {
+            if (moved) {
+                e.stopImmediatePropagation();
+                moved = false;
+            }
+        }, true);
     }
 
     function togglePanel() {
         const root = document.getElementById('gs-root');
         if (!root) return;
-        root.classList.toggle('gs-hidden');
+        root.classList.toggle('gs-collapsed');
     }
 
     function showPanel() {
         const root = document.getElementById('gs-root');
-        if (root) root.classList.remove('gs-hidden');
+        if (root) root.classList.remove('gs-collapsed');
     }
 
     // ------------------------------------------------------------------
@@ -252,8 +318,8 @@
             <div id="gs-header">
                 <img src="${iconUrl}" onerror="this.style.display='none'"/>
                 <div class="gs-title">Gate Spawner</div>
-                <div class="gs-icon-btn" id="gs-reconfigure" title="Change toggle shortcut">⚙</div>
-                <div class="gs-icon-btn" id="gs-close" title="Hide panel">✕</div>
+                <div class="gs-icon-btn" id="gs-reconfigure" title="Set/change optional keyboard shortcut">⚙</div>
+                <div id="gs-chevron">▾</div>
             </div>
             <div id="gs-body">
                 <label class="gs-label">Airport</label>
@@ -274,6 +340,7 @@
             </div>
         `;
         document.body.appendChild(root);
+        root.classList.add('gs-collapsed');
 
         FILTERS.forEach(f => {
             const chip = document.createElement('div');
@@ -305,8 +372,12 @@
             }
         });
         document.getElementById('gs-spawn').addEventListener('click', spawnAtSelectedGate);
-        document.getElementById('gs-close').addEventListener('click', togglePanel);
-        document.getElementById('gs-reconfigure').addEventListener('click', () => openShortcutSetup(true));
+        document.getElementById('gs-header').addEventListener('click', togglePanel);
+        document.getElementById('gs-reconfigure').addEventListener('click', (e) => {
+            e.stopPropagation(); // don't also toggle the header when clicking the gear
+            openShortcutSetup();
+        });
+        makeDraggable(root, document.getElementById('gs-header'));
     }
 
     function populateAirportList() {
@@ -436,26 +507,22 @@
             try {
                 shortcut = JSON.parse(stored);
             } catch (e) {
-                shortcut = DEFAULT_SHORTCUT;
+                shortcut = null;
             }
-            // Panel starts hidden after the first run is already configured —
-            // press your shortcut to bring it up.
-            document.getElementById('gs-root').classList.add('gs-hidden');
-        } else {
-            // First run ever: ask the user to pick their shortcut.
-            openShortcutSetup(false);
-            document.getElementById('gs-root').classList.add('gs-hidden');
         }
+        updateShortcutHint();
 
-        document.getElementById('gs-shortcut-hint').textContent =
-            shortcut ? `Toggle: ${formatShortcut(shortcut)}` : '';
-
+        // Capture phase, so we get first crack at the keydown before GeoFS's
+        // own handlers (or the browser) can swallow it. Note: some key
+        // combos (e.g. Alt+G) may already be claimed by your browser or an
+        // extension before the page ever sees them — if your shortcut
+        // doesn't seem to work, try a different combination.
         window.addEventListener('keydown', (e) => {
-            if (matchesShortcut(e, shortcut)) {
+            if (shortcut && matchesShortcut(e, shortcut)) {
                 e.preventDefault();
                 togglePanel();
             }
-        });
+        }, true);
     }
 
     if (document.readyState === 'complete') {

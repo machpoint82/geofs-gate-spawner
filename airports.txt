@@ -1,18 +1,104 @@
-EGLL – London Heathrow Airport
-KJFK – John F. Kennedy International Airport (New York)
-EDDF – Frankfurt Airport
-EDDM – Munich Airport (Franz Josef Strauss)
-KIAD – Washington Dulles International Airport
-KLAX – Los Angeles International Airport
-KMSP – Minneapolis–Saint Paul International Airport
-KORD – Chicago O'Hare International Airport
-KSFO – San Francisco International Airport
-LFPG – Paris Charles de Gaulle Airport
-OMDB – Dubai International Airport
-RJAA – Narita International Airport (Tokyo)
-RJTT – Tokyo Haneda Airport
-ZBAA – Beijing Capital International Airport
-LEMD – Adolfo Suárez Madrid–Barajas Airport
-YSSY – Sydney Kingsford Smith Airport
-YMML – Melbourne Airport (Tullamarine)
-OTHH – Hamad International Airport (Doha)
+ICAO	Airport
+EGLL	London Heathrow
+KJFK	New York JFK Intl
+EDDF	Frankfurt
+EDDM	Munich
+KIAD	Washington Dulles Intl
+KLAX	Los Angeles Intl
+KMSP	Minneapolis–Saint Paul Intl
+KORD	Chicago O'Hare Intl
+KSFO	San Francisco Intl
+LFPG	Paris Charles de Gaulle
+OMDB	Dubai Intl
+RJAA	Tokyo Narita Intl
+RJTT	Tokyo Haneda
+ZBAA	Beijing Capital Intl
+LEMD	Madrid Adolfo Suárez–Barajas
+YSSY	Sydney Kingsford Smith
+YMML	Melbourne
+OTHH	Doha Hamad Intl
+KATL	Atlanta Hartsfield–Jackson
+KDFW	Dallas/Fort Worth Intl
+KDEN	Denver Intl
+KSEA	Seattle–Tacoma Intl
+KLAS	Las Vegas Harry Reid Intl
+KMIA	Miami Intl
+KBOS	Boston Logan Intl
+KIAH	Houston George Bush Intercontinental
+KMCO	Orlando Intl
+KPHX	Phoenix Sky Harbor Intl
+KEWR	Newark Liberty Intl
+KDTW	Detroit Metro Wayne County
+KPHL	Philadelphia Intl
+KLGA	New York LaGuardia
+KBWI	Baltimore/Washington Thurgood Marshall Intl
+KSAN	San Diego Intl
+KTPA	Tampa Intl
+KSLC	Salt Lake City Intl
+SBGR	São Paulo/Guarulhos Intl
+SBGL	Rio de Janeiro/Galeão Intl
+SAEZ	Buenos Aires Ministro Pistarini (Ezeiza)
+SCEL	Santiago Arturo Merino Benítez
+SKBO	Bogotá El Dorado Intl
+MMMX	Mexico City Intl (Benito Juárez)
+MMUN	Cancún Intl
+MPTO	Panama Tocumen Intl
+EGKK	London Gatwick
+EGCC	Manchester
+LFPO	Paris Orly
+EDDB	Berlin Brandenburg
+EHAM	Amsterdam Schiphol
+LEBL	Barcelona El Prat
+LIRF	Rome Fiumicino (Leonardo da Vinci)
+LIMC	Milan Malpensa
+LSZH	Zurich
+LSGG	Geneva
+LOWW	Vienna Intl
+EBBR	Brussels
+EKCH	Copenhagen
+ENGM	Oslo Gardermoen
+ESSA	Stockholm Arlanda
+EPWA	Warsaw Chopin
+LKPR	Prague Václav Havel
+LHBP	Budapest Ferenc Liszt Intl
+LTFM	Istanbul Airport
+LTBA	Istanbul Atatürk (closed to commercial traffic)
+UUEE	Moscow Sheremetyevo
+UUDD	Moscow Domodedovo
+OMAA	Abu Dhabi Intl
+OERK	Riyadh King Khalid Intl
+OEJN	Jeddah King Abdulaziz Intl
+OJAI	Amman Queen Alia Intl
+LLBG	Tel Aviv Ben Gurion
+VHHH	Hong Kong Intl
+ZSPD	Shanghai Pudong Intl
+ZGGG	Guangzhou Baiyun Intl
+ZUUU	Chengdu Shuangliu Intl
+RJBB	Osaka Kansai Intl
+RKSI	Seoul Incheon Intl
+RCTP	Taipei Taoyuan Intl
+WSSS	Singapore Changi
+WMKK	Kuala Lumpur Intl
+VTBS	Bangkok Suvarnabhumi
+VTBD	Bangkok Don Mueang Intl
+VVTS	Ho Chi Minh City Tan Son Nhat Intl
+VVNB	Hanoi Noi Bai Intl
+VABB	Mumbai Chhatrapati Shivaji Maharaj Intl
+VIDP	New Delhi Indira Gandhi Intl
+VOMM	Chennai Intl
+VOBL	Bangalore Kempegowda Intl
+VECC	Kolkata Netaji Subhas Chandra Bose Intl
+RPLL	Manila Ninoy Aquino Intl
+WIII	Jakarta Soekarno–Hatta Intl
+YBBN	Brisbane
+YPPH	Perth
+YSCB	Canberra
+NZAA	Auckland
+NZCH	Christchurch Intl
+FACT	Cape Town Intl
+FAOR	Johannesburg O.R. Tambo Intl
+HECA	Cairo Intl
+DNMM	Lagos Murtala Muhammed Intl
+DIAP	Abidjan Félix-Houphouët-Boigny Intl
+GMMN	Casablanca Mohammed V Intl
+HKJK	Nairobi Jomo Kenyatta Intl

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GeoFS Gate Spawner
 // @namespace    https://github.com/machpoint82/geofs-gate-spawner
-// @version      2.4.0
+// @version      2.4.1
 // @description  Spawn parked at a real gate/stand at supported airports, with aircraft-category filters. Panel opens from a small always-visible tab; a keyboard shortcut is optional.
 // @author       machpoint82
 // @match        https://www.geo-fs.com/geofs.php*

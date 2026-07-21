@@ -1,0 +1,253 @@
+#	ICAO	Airport
+1	EGLL	London Heathrow
+2	KJFK	New York JFK Intl
+3	EDDF	Frankfurt
+4	EDDM	Munich
+5	KIAD	Washington Dulles Intl
+6	KLAX	Los Angeles Intl
+7	KMSP	Minneapolis–Saint Paul Intl
+8	KORD	Chicago O'Hare Intl
+9	KSFO	San Francisco Intl
+10	LFPG	Paris Charles de Gaulle
+11	OMDB	Dubai Intl
+12	RJAA	Tokyo Narita Intl
+13	RJTT	Tokyo Haneda
+14	ZBAA	Beijing Capital Intl
+15	LEMD	Madrid Adolfo Suárez–Barajas
+16	YSSY	Sydney Kingsford Smith
+17	YMML	Melbourne
+18	OTHH	Doha Hamad Intl
+19	KATL	Atlanta Hartsfield–Jackson
+20	KDFW	Dallas/Fort Worth Intl
+21	KDEN	Denver Intl
+22	KSEA	Seattle–Tacoma Intl
+23	KLAS	Las Vegas Harry Reid Intl
+24	KMIA	Miami Intl
+25	KBOS	Boston Logan Intl
+26	KIAH	Houston George Bush Intercontinental
+27	KMCO	Orlando Intl
+28	KPHX	Phoenix Sky Harbor Intl
+29	KEWR	Newark Liberty Intl
+30	KDTW	Detroit Metro Wayne County
+31	KPHL	Philadelphia Intl
+32	KLGA	New York LaGuardia
+33	KBWI	Baltimore/Washington Thurgood Marshall Intl
+34	KSAN	San Diego Intl
+35	KTPA	Tampa Intl
+36	KSLC	Salt Lake City Intl
+37	SBGR	São Paulo/Guarulhos Intl
+38	SBGL	Rio de Janeiro/Galeão Intl
+39	SAEZ	Buenos Aires Ministro Pistarini (Ezeiza)
+40	SCEL	Santiago Arturo Merino Benítez
+41	SKBO	Bogotá El Dorado Intl
+42	MMMX	Mexico City Intl (Benito Juárez)
+43	MMUN	Cancún Intl
+44	MPTO	Panama Tocumen Intl
+45	EGKK	London Gatwick
+46	EGCC	Manchester
+47	LFPO	Paris Orly
+48	EDDB	Berlin Brandenburg
+49	EHAM	Amsterdam Schiphol
+50	LEBL	Barcelona El Prat
+51	LIRF	Rome Fiumicino (Leonardo da Vinci)
+52	LIMC	Milan Malpensa
+53	LSZH	Zurich
+54	LSGG	Geneva
+55	LOWW	Vienna Intl
+56	EBBR	Brussels
+57	EKCH	Copenhagen
+58	ENGM	Oslo Gardermoen
+59	ESSA	Stockholm Arlanda
+60	EPWA	Warsaw Chopin
+61	LKPR	Prague Václav Havel
+62	LHBP	Budapest Ferenc Liszt Intl
+63	LTFM	Istanbul Airport
+64	LTBA	Istanbul Atatürk (closed to commercial traffic)
+65	UUEE	Moscow Sheremetyevo
+66	UUDD	Moscow Domodedovo
+67	OMAA	Abu Dhabi Intl
+68	OERK	Riyadh King Khalid Intl
+69	OEJN	Jeddah King Abdulaziz Intl
+70	OJAI	Amman Queen Alia Intl
+71	LLBG	Tel Aviv Ben Gurion
+72	VHHH	Hong Kong Intl
+73	ZSPD	Shanghai Pudong Intl
+74	ZGGG	Guangzhou Baiyun Intl
+75	ZUUU	Chengdu Shuangliu Intl
+76	RJBB	Osaka Kansai Intl
+77	RKSI	Seoul Incheon Intl
+78	RCTP	Taipei Taoyuan Intl
+79	WSSS	Singapore Changi
+80	WMKK	Kuala Lumpur Intl
+81	VTBS	Bangkok Suvarnabhumi
+82	VTBD	Bangkok Don Mueang Intl
+83	VVTS	Ho Chi Minh City Tan Son Nhat Intl
+84	VVNB	Hanoi Noi Bai Intl
+85	VABB	Mumbai Chhatrapati Shivaji Maharaj Intl
+86	VIDP	New Delhi Indira Gandhi Intl
+87	VOMM	Chennai Intl
+88	VOBL	Bangalore Kempegowda Intl
+89	VECC	Kolkata Netaji Subhas Chandra Bose Intl
+90	RPLL	Manila Ninoy Aquino Intl
+91	WIII	Jakarta Soekarno–Hatta Intl
+92	YBBN	Brisbane
+93	YPPH	Perth
+94	YSCB	Canberra
+95	NZAA	Auckland
+96	NZCH	Christchurch Intl
+97	FACT	Cape Town Intl
+98	FAOR	Johannesburg O.R. Tambo Intl
+99	HECA	Cairo Intl
+100	DNMM	Lagos Murtala Muhammed Intl
+101	DIAP	Abidjan Félix-Houphouët-Boigny Intl
+102	GMMN	Casablanca Mohammed V Intl
+103	HKJK	Nairobi Jomo Kenyatta Intl
+104	KDCA	Washington Reagan National
+105	KFLL	Fort Lauderdale–Hollywood Intl
+106	KMDW	Chicago Midway Intl
+107	KHOU	Houston Hobby
+108	KPDX	Portland Intl
+109	KSTL	St. Louis Lambert Intl
+110	KMCI	Kansas City Intl
+111	KCLE	Cleveland Hopkins Intl
+112	KCVG	Cincinnati/Northern Kentucky Intl
+113	KPIT	Pittsburgh Intl
+114	KCLT	Charlotte Douglas Intl
+115	KRDU	Raleigh-Durham Intl
+116	KAUS	Austin-Bergstrom Intl
+117	KSAT	San Antonio Intl
+118	KSJC	San Jose (Norman Y. Mineta) Intl
+119	KOAK	Oakland Intl
+120	KSMF	Sacramento Intl
+121	KJAX	Jacksonville Intl
+122	KMSY	Louis Armstrong New Orleans Intl
+123	KBNA	Nashville Intl
+124	KIND	Indianapolis Intl
+125	KCMH	John Glenn Columbus Intl
+126	KMKE	Milwaukee Mitchell Intl
+127	KOMA	Omaha Eppley Airfield
+128	KABQ	Albuquerque Intl Sunport
+129	KTUS	Tucson Intl
+130	KELP	El Paso Intl
+131	KBUF	Buffalo Niagara Intl
+132	KROC	Greater Rochester Intl
+133	KSYR	Syracuse Hancock Intl
+134	KPVD	Providence T.F. Green Intl
+135	KBDL	Hartford Bradley Intl
+136	KPWM	Portland Intl Jetport (Maine)
+137	KRIC	Richmond Intl
+138	KORF	Norfolk Intl
+139	KGSO	Greensboro Piedmont Triad Intl
+140	KTYS	Knoxville McGhee Tyson
+141	KCHS	Charleston Intl
+142	KSAV	Savannah/Hilton Head Intl
+143	KPBI	Palm Beach Intl
+144	KDAL	Dallas Love Field
+145	KOKC	Oklahoma City Will Rogers World
+146	KTUL	Tulsa Intl
+147	KLIT	Little Rock (Clinton National)
+148	KJAN	Jackson-Medgar Wiley Evers Intl
+149	KBHM	Birmingham-Shuttlesworth Intl
+150	KMEM	Memphis Intl
+151	KGRR	Grand Rapids (Gerald R. Ford Intl)
+152	KDSM	Des Moines Intl
+153	KFAR	Fargo Hector Intl
+154	KBIL	Billings Logan Intl
+155	KBOI	Boise Airport
+156	KGEG	Spokane Intl
+157	KPSP	Palm Springs Intl
+158	KRNO	Reno-Tahoe Intl
+159	KSNA	Santa Ana John Wayne Airport
+160	KBUR	Hollywood Burbank Airport
+161	KLGB	Long Beach Airport
+162	KONT	Ontario Intl (California)
+163	CYYZ	Toronto Pearson Intl
+164	CYVR	Vancouver Intl
+165	CYUL	Montreal-Trudeau Intl
+166	CYYC	Calgary Intl
+167	CYOW	Ottawa Macdonald-Cartier Intl
+168	CYEG	Edmonton Intl
+169	CYHZ	Halifax Stanfield Intl
+170	CYWG	Winnipeg James Armstrong Richardson Intl
+171	MMGL	Guadalajara Intl
+172	MMMY	Monterrey Intl
+173	MMTJ	Tijuana Intl
+174	MGGT	Guatemala City La Aurora Intl
+175	MSLP	San Salvador Intl
+176	MHTG	Tegucigalpa Toncontín Intl
+177	MROC	San José Juan Santamaría Intl (Costa Rica)
+178	SBSP	São Paulo Congonhas
+179	SBBR	Brasília Intl
+180	SBRJ	Rio de Janeiro Santos Dumont
+181	SPJC	Lima Jorge Chávez Intl
+182	SEQM	Quito Mariscal Sucre Intl
+183	SVMI	Caracas Simón Bolívar Intl
+184	SUMU	Montevideo Carrasco Intl
+185	SLLP	La Paz El Alto Intl
+186	EDDL	Düsseldorf
+187	EDDH	Hamburg
+188	EDDK	Cologne Bonn
+189	EDDS	Stuttgart
+190	LFML	Marseille Provence
+191	LFLL	Lyon-Saint Exupéry
+192	LFBO	Toulouse-Blagnac
+193	LIME	Milan Bergamo
+194	LIPZ	Venice Marco Polo
+195	LIRN	Naples Intl
+196	LPPT	Lisbon Humberto Delgado
+197	LPPR	Porto Francisco Sá Carneiro
+198	EIDW	Dublin
+199	EGPH	Edinburgh
+200	EGPF	Glasgow
+201	EGBB	Birmingham (UK)
+202	EGSS	London Stansted
+203	EGGW	London Luton
+204	ESGG	Gothenburg Landvetter
+205	EFHK	Helsinki-Vantaa
+206	BIKF	Reykjavik Keflavik Intl
+207	LGAV	Athens Intl
+208	LCLK	Larnaca Intl
+209	LMML	Malta Intl
+210	LOWS	Salzburg Airport
+211	LBSF	Sofia Airport
+212	LROP	Bucharest Henri Coandă Intl
+213	LZIB	Bratislava Airport
+214	LJLJ	Ljubljana Jože Pučnik Airport
+215	LDZA	Zagreb Franjo Tuđman Airport
+216	EDDN	Nuremberg Airport
+217	EDDV	Hannover Airport
+218	ELLX	Luxembourg Airport
+219	UUWW	Moscow Vnukovo Intl
+220	ULLI	St. Petersburg Pulkovo Airport
+221	OKBK	Kuwait Intl
+222	OBBI	Bahrain Intl
+223	OOMS	Muscat Intl
+224	LTAC	Ankara Esenboğa Airport
+225	RJCC	Sapporo New Chitose Airport
+226	RJOO	Osaka Itami Airport
+227	RJFF	Fukuoka Airport
+228	RKPC	Jeju Intl
+229	ZSSS	Shanghai Hongqiao Intl
+230	ZGSZ	Shenzhen Bao'an Intl
+231	ZHHH	Wuhan Tianhe Intl
+232	ZLXY	Xi'an Xianyang Intl
+233	VCBI	Colombo Bandaranaike Intl
+234	VNKT	Kathmandu Tribhuvan Intl
+235	OPKC	Karachi Jinnah Intl
+236	OPLA	Lahore Allama Iqbal Intl
+237	OPIS	Islamabad Intl
+238	UTTT	Tashkent Intl
+239	UBBB	Baku Heydar Aliyev Intl
+240	UGTB	Tbilisi Intl
+241	NFFN	Nadi Intl (Fiji)
+242	FALE	Durban King Shaka Intl
+243	FBSK	Gaborone Sir Seretse Khama Intl
+244	FVHA	Harare Robert Gabriel Mugabe Intl
+245	FKKD	Douala Intl (Cameroon)
+246	FAPE	Port Elizabeth Chief Dawid Stuurman Intl
+247	FAGG	George Airport (South Africa)
+248	FQMA	Maputo Intl
+249	GOOY	Dakar Blaise Diagne Intl
+250	DGAA	Accra Kotoka Intl
+251	DTTA	Tunis-Carthage Intl
+252	DAAG	Algiers Houari Boumediene Airport

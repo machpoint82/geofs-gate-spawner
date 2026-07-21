@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         GeoFS Gate Spawner
 // @namespace    https://github.com/machpoint82/geofs-gate-spawner
-// @version      2.4.0
-// @description  Spawn parked at a real gate/stand at supported airports, with aircraft-category filters. Panel opens from a small always-visible tab; a keyboard shortcut is optional.
+// @version      3.0.0
+// @description  Spawn parked at a real gate/stand at supported airports, with aircraft-category filters. Docks a small button next to your other GeoFS addon pads.
 // @author       machpoint82
 // @match        https://www.geo-fs.com/geofs.php*
 // @match        https://*.geo-fs.com/geofs.php*
@@ -24,10 +24,7 @@
     // CONFIG
     // ------------------------------------------------------------------
     const GATES_URL = 'https://raw.githubusercontent.com/machpoint82/geofs-gate-spawner/refs/heads/main/gates.json';
-    // No default shortcut is shipped or forced on anyone. The panel is
-    // always reachable via the small tab in the corner; a keyboard
-    // shortcut is entirely optional and only exists if the user sets
-    // one themselves via the gear icon.
+    const ICON_URL = 'https://raw.githubusercontent.com/machpoint82/geofs-gate-spawner/main/icon.png';
 
     // Used only if the fetch fails (offline, repo down, typo in URL, etc).
     const EMBEDDED_SAMPLE = {
@@ -37,7 +34,7 @@
     };
 
     // Aircraft-category / operation filters, built from the width_code and
-    // operation_type fields the extractor now pulls from apt.dat rows 1300/1301.
+    // operation_type fields the extractor pulls from apt.dat rows 1300/1301.
     const FILTERS = [
         { key: 'codeF', label: 'A380 / 747 (Code F)', test: g => g.width_code === 'F' },
         { key: 'codeE', label: '777 / 787 (Code E)', test: g => g.width_code === 'E' },
@@ -48,7 +45,6 @@
 
     let gatesDB = {};
     let activeFilters = new Set();
-    let shortcut = null;
     let currentAirport = null;
 
     // ------------------------------------------------------------------
@@ -57,8 +53,25 @@
     function injectStyles() {
         const style = document.createElement('style');
         style.textContent = `
-        #gs-root {
+        /* --- Dock button: sits alongside other addons' pads (Radio, Random Jobs, etc) --- */
+        .gs-pad {
+            width: 46px !important; height: 46px !important;
+            min-width: 46px; min-height: 46px;
+            border-radius: 12px !important;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; overflow: hidden;
+            background: linear-gradient(135deg, #0f172a, #1d4ed8 60%, #06b6d4);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+        }
+        .gs-pad img { width: 30px; height: 30px; border-radius: 6px; pointer-events: none; }
+
+        /* --- Fallback dock, only used if GeoFS's own pad row can't be found --- */
+        .gs-pad.gs-fallback-pad {
             position: fixed; top: 64px; right: 14px; z-index: 999999;
+        }
+
+        #gs-root {
+            position: fixed; top: 64px; right: 70px; z-index: 999999;
             width: 260px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
             color: #e5e7eb;
             background: linear-gradient(160deg, rgba(15,23,42,0.92), rgba(30,41,59,0.92));
@@ -67,21 +80,20 @@
             backdrop-filter: blur(10px);
             box-shadow: 0 10px 30px rgba(0,0,0,0.45);
             overflow: hidden;
+            display: none;
         }
+        #gs-root.gs-open { display: block; }
         #gs-header {
             display: flex; align-items: center; gap: 8px;
             padding: 9px 10px;
             background: linear-gradient(120deg, #0f172a, #1d4ed8 60%, #06b6d4);
-            cursor: pointer;
+            cursor: grab;
         }
-        #gs-header img { width: 22px; height: 22px; border-radius: 6px; flex-shrink: 0; }
-        #gs-header .gs-title { font-weight: 600; font-size: 13px; flex: 1; letter-spacing: 0.2px; }
-        #gs-header .gs-icon-btn { cursor: pointer; opacity: 0.85; font-size: 13px; padding: 2px 4px; }
-        #gs-header .gs-icon-btn:hover { opacity: 1; }
-        #gs-chevron { font-size: 11px; opacity: 0.8; transition: transform 0.15s ease; }
-        #gs-root.gs-collapsed #gs-chevron { transform: rotate(-90deg); }
+        #gs-header img { width: 22px; height: 22px; border-radius: 6px; flex-shrink: 0; pointer-events: none; }
+        #gs-header .gs-title { font-weight: 600; font-size: 13px; flex: 1; letter-spacing: 0.2px; pointer-events: none; }
+        #gs-header .gs-close { cursor: pointer; opacity: 0.85; font-size: 14px; padding: 2px 4px; }
+        #gs-header .gs-close:hover { opacity: 1; }
         #gs-body { padding: 10px 12px 12px; }
-        #gs-root.gs-collapsed #gs-body { display: none; }
         #gs-body label.gs-label { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.6px; opacity: 0.55; display: block; margin: 8px 0 4px; }
         #gs-body select, #gs-body input[type=text] {
             width: 100%; box-sizing: border-box; padding: 6px 8px;
@@ -121,113 +133,61 @@
         #gs-spawn:hover { filter: brightness(1.08); }
         #gs-spawn:active { transform: scale(0.98); }
         #gs-status { margin-top: 7px; font-size: 11px; opacity: 0.65; min-height: 14px; }
-        #gs-shortcut-hint { margin-top: 6px; font-size: 10.5px; opacity: 0.4; text-align: center; }
-
-        #gs-overlay {
-            position: fixed; inset: 0; z-index: 9999999;
-            background: rgba(2,6,23,0.72); backdrop-filter: blur(3px);
-            display: flex; align-items: center; justify-content: center;
-        }
-        #gs-modal {
-            width: 320px; background: linear-gradient(160deg, #0f172a, #1e293b);
-            border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 20px;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #e5e7eb;
-            text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-        }
-        #gs-modal h3 { margin: 6px 0 8px; font-size: 15px; }
-        #gs-modal p { font-size: 12.5px; opacity: 0.75; line-height: 1.5; margin: 0 0 14px; }
-        #gs-combo-display {
-            font-size: 18px; font-weight: 700; letter-spacing: 0.5px;
-            background: rgba(255,255,255,0.06); border: 1px dashed rgba(255,255,255,0.25);
-            border-radius: 10px; padding: 12px; margin-bottom: 14px; color: #38bdf8;
-        }
-        #gs-modal button {
-            border: none; border-radius: 8px; padding: 9px 14px; font-size: 12.5px; font-weight: 600;
-            cursor: pointer; margin: 0 4px;
-        }
-        #gs-save-shortcut { background: linear-gradient(120deg, #1d4ed8, #06b6d4); color: white; }
-        #gs-save-shortcut:disabled { opacity: 0.4; cursor: not-allowed; }
-        #gs-skip-shortcut { background: rgba(255,255,255,0.08); color: #cbd5e1; }
         `;
         document.head.appendChild(style);
     }
 
     // ------------------------------------------------------------------
-    // SHORTCUT (custom toggle keybind)
+    // DOCK BUTTON: try to sit inside GeoFS's own .geofs-ui-right control-pad
+    // row (same place Radio/Random Jobs/etc live). Falls back to a fixed
+    // floating button if that row can't be found, so the script is never
+    // silently invisible on a GeoFS version/layout that differs.
     // ------------------------------------------------------------------
-    function formatShortcut(sc) {
-        const parts = [];
-        if (sc.ctrl) parts.push('Ctrl');
-        if (sc.alt) parts.push('Alt');
-        if (sc.shift) parts.push('Shift');
-        parts.push(sc.key.toUpperCase());
-        return parts.join(' + ');
-    }
-
-    function matchesShortcut(e, sc) {
-        if (!sc) return false;
-        return !!e.ctrlKey === !!sc.ctrl &&
-               !!e.altKey === !!sc.alt &&
-               !!e.shiftKey === !!sc.shift &&
-               e.key.toLowerCase() === sc.key.toLowerCase();
-    }
-
-    function openShortcutSetup() {
-        const overlay = document.createElement('div');
-        overlay.id = 'gs-overlay';
-        overlay.innerHTML = `
-            <div id="gs-modal">
-                <h3>🔑 Optional: set a toggle shortcut</h3>
-                <p>Press a key combination to use as a shortcut for opening/closing this panel (e.g. Ctrl+Shift+K). Pick something not already used by your browser or extensions. You can always open the panel from its tab instead, so this is entirely optional.</p>
-                <div id="gs-combo-display">Press a key…</div>
-                <button id="gs-save-shortcut" disabled>Save</button>
-                <button id="gs-skip-shortcut">Cancel</button>
-            </div>
-        `;
-        document.body.appendChild(overlay);
-
-        let captured = null;
-        const display = overlay.querySelector('#gs-combo-display');
-        const saveBtn = overlay.querySelector('#gs-save-shortcut');
-
-        function captureHandler(e) {
-            const nonModifierKeys = ['Control', 'Alt', 'Shift', 'Meta'];
-            if (nonModifierKeys.includes(e.key)) return;
-            e.preventDefault();
-            captured = { ctrl: e.ctrlKey, alt: e.altKey, shift: e.shiftKey, key: e.key.toLowerCase() };
-            display.textContent = formatShortcut(captured);
-            saveBtn.disabled = false;
-        }
-
-        window.addEventListener('keydown', captureHandler, true);
-
-        function cleanup() {
-            window.removeEventListener('keydown', captureHandler, true);
-            overlay.remove();
-        }
-
-        saveBtn.addEventListener('click', () => {
-            if (!captured) return;
-            shortcut = captured;
-            GM_setValue('gs_shortcut', JSON.stringify(captured));
-            cleanup();
-            updateShortcutHint();
+    function createPadButton() {
+        const pad = document.createElement('div');
+        pad.id = 'gs-pad';
+        pad.className = 'control-pad gs-pad';
+        pad.setAttribute('tabindex', '0');
+        pad.title = 'Gate Spawner';
+        pad.innerHTML = `<img src="${ICON_URL}" onerror="this.style.display='none'"/>`;
+        pad.addEventListener('click', togglePanel);
+        pad.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); togglePanel(); }
         });
-
-        overlay.querySelector('#gs-skip-shortcut').addEventListener('click', () => {
-            cleanup();
-        });
+        return pad;
     }
 
-    function updateShortcutHint() {
-        const hint = document.getElementById('gs-shortcut-hint');
-        if (!hint) return;
-        hint.textContent = shortcut ? `Shortcut: ${formatShortcut(shortcut)}` : 'No shortcut set — click ⚙ to add one';
+    function dockPadButton(attempt = 0) {
+        const uiRight = document.querySelector('.geofs-ui-right');
+        if (uiRight) {
+            uiRight.appendChild(createPadButton());
+            return;
+        }
+        if (attempt < 20) {
+            setTimeout(() => dockPadButton(attempt + 1), 500);
+        } else {
+            // Never found GeoFS's own pad row -- fall back to a floating
+            // button so the script is still reachable rather than invisible.
+            const pad = createPadButton();
+            pad.classList.add('gs-fallback-pad');
+            document.body.appendChild(pad);
+        }
     }
 
     // ------------------------------------------------------------------
-    // DRAGGING
+    // PANEL OPEN/CLOSE + DRAGGING
     // ------------------------------------------------------------------
+    function togglePanel() {
+        const root = document.getElementById('gs-root');
+        if (!root) return;
+        root.classList.toggle('gs-open');
+    }
+
+    function closePanel() {
+        const root = document.getElementById('gs-root');
+        if (root) root.classList.remove('gs-open');
+    }
+
     function makeDraggable(root, header) {
         let dragging = false;
         let moved = false;
@@ -243,7 +203,7 @@
         } catch (e) { /* ignore, use CSS defaults */ }
 
         header.addEventListener('mousedown', (e) => {
-            if (e.target.closest('#gs-reconfigure')) return;
+            if (e.target.closest('.gs-close')) return;
             dragging = true;
             moved = false;
             startX = e.clientX;
@@ -269,33 +229,13 @@
         window.addEventListener('mouseup', () => {
             if (!dragging) return;
             dragging = false;
-            header.style.cursor = 'pointer';
+            header.style.cursor = 'grab';
             if (moved) {
                 const rect = root.getBoundingClientRect();
                 const pos = { top: rect.top, right: window.innerWidth - rect.right };
                 GM_setValue('gs_position', JSON.stringify(pos));
             }
         });
-
-        // Suppress the toggle click that immediately follows a real drag,
-        // but let a plain click through untouched.
-        header.addEventListener('click', (e) => {
-            if (moved) {
-                e.stopImmediatePropagation();
-                moved = false;
-            }
-        }, true);
-    }
-
-    function togglePanel() {
-        const root = document.getElementById('gs-root');
-        if (!root) return;
-        root.classList.toggle('gs-collapsed');
-    }
-
-    function showPanel() {
-        const root = document.getElementById('gs-root');
-        if (root) root.classList.remove('gs-collapsed');
     }
 
     // ------------------------------------------------------------------
@@ -328,13 +268,11 @@
     function buildUI() {
         const root = document.createElement('div');
         root.id = 'gs-root';
-        const iconUrl = 'https://raw.githubusercontent.com/machpoint82/geofs-gate-spawner/main/icon.png';
         root.innerHTML = `
             <div id="gs-header">
-                <img src="${iconUrl}" onerror="this.style.display='none'"/>
+                <img src="${ICON_URL}" onerror="this.style.display='none'"/>
                 <div class="gs-title">Gate Spawner</div>
-                <div class="gs-icon-btn" id="gs-reconfigure" title="Set/change optional keyboard shortcut">⚙</div>
-                <div id="gs-chevron">▾</div>
+                <div class="gs-close" title="Close">✕</div>
             </div>
             <div id="gs-body">
                 <label class="gs-label">Airport</label>
@@ -354,11 +292,9 @@
 
                 <button id="gs-spawn">Spawn at gate</button>
                 <div id="gs-status"></div>
-                <div id="gs-shortcut-hint"></div>
             </div>
         `;
         document.body.appendChild(root);
-        root.classList.add('gs-collapsed');
 
         FILTERS.forEach(f => {
             const chip = document.createElement('div');
@@ -389,18 +325,13 @@
             }
         });
         document.getElementById('gs-spawn').addEventListener('click', spawnAtSelectedGate);
-        document.getElementById('gs-header').addEventListener('click', togglePanel);
-        document.getElementById('gs-reconfigure').addEventListener('click', (e) => {
-            e.stopPropagation(); // don't also toggle the header when clicking the gear
-            openShortcutSetup();
-        });
+        document.querySelector('#gs-header .gs-close').addEventListener('click', closePanel);
         makeDraggable(root, document.getElementById('gs-header'));
         wireAirportCombo();
     }
 
     // ------------------------------------------------------------------
-    // AIRPORT COMBOBOX (custom-built so it isn't limited by native <select>
-    // dropdown styling, and doubles as an ICAO search box)
+    // AIRPORT COMBOBOX (custom-built, doubles as an ICAO search box)
     // ------------------------------------------------------------------
     function wireAirportCombo() {
         const input = document.getElementById('gs-airport-input');
@@ -422,7 +353,6 @@
                     item.textContent = `${icao} (${gatesDB[icao].length} spots)`;
                     item.dataset.icao = icao;
                     item.addEventListener('mousedown', (e) => {
-                        // mousedown (not click) so it fires before the input's blur closes the list
                         e.preventDefault();
                         selectAirport(icao);
                     });
@@ -457,9 +387,6 @@
                 list.classList.remove('gs-open');
             }
         });
-
-        // expose selectAirport for populateAirportList() to pick a default
-        wireAirportCombo._select = selectAirport;
     }
 
     function populateAirportList() {
@@ -512,12 +439,9 @@
 
     // ------------------------------------------------------------------
     // ANTI-CREEP: hold the parking brake for a few seconds right after a
-    // fresh gate spawn. GeoFS can spawn an aircraft slightly above the
-    // pavement or with idle thrust already applied, so it can roll/creep
-    // forward before physics settles. Holding Space (the parking brake
-    // key) the same way a player would stops that. Best-effort — GeoFS's
-    // internal physics aren't something we control directly, so this
-    // helps in most cases but isn't guaranteed for every aircraft/gate.
+    // fresh gate spawn. Best-effort -- GeoFS's internal physics aren't
+    // something we control directly, so this helps in most cases but
+    // isn't guaranteed for every aircraft/gate.
     // ------------------------------------------------------------------
     function holdParkingBrakeOnSpawn() {
         let justSpawned = false;
@@ -526,10 +450,9 @@
         try { sessionStorage.removeItem('gs_just_spawned'); } catch (e) { /* ignore */ }
 
         const HOLD_MS = 4000;
-        const target = window; // GeoFS listens for key events on window/document
 
         function dispatch(type) {
-            target.dispatchEvent(new KeyboardEvent(type, {
+            window.dispatchEvent(new KeyboardEvent(type, {
                 key: ' ', code: 'Space', keyCode: 32, which: 32,
                 bubbles: true, cancelable: true
             }));
@@ -581,28 +504,7 @@
         buildUI();
         loadGates();
         holdParkingBrakeOnSpawn();
-
-        const stored = GM_getValue('gs_shortcut', null);
-        if (stored) {
-            try {
-                shortcut = JSON.parse(stored);
-            } catch (e) {
-                shortcut = null;
-            }
-        }
-        updateShortcutHint();
-
-        // Capture phase, so we get first crack at the keydown before GeoFS's
-        // own handlers (or the browser) can swallow it. Note: some key
-        // combos (e.g. Alt+G) may already be claimed by your browser or an
-        // extension before the page ever sees them — if your shortcut
-        // doesn't seem to work, try a different combination.
-        window.addEventListener('keydown', (e) => {
-            if (shortcut && matchesShortcut(e, shortcut)) {
-                e.preventDefault();
-                togglePanel();
-            }
-        }, true);
+        dockPadButton();
     }
 
     if (document.readyState === 'complete') {

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GeoFS Gate Spawner
 // @namespace    https://github.com/machpoint82/geofs-gate-spawner
-// @version      2.4.1
+// @version      2.4.0
 // @description  Spawn parked at a real gate/stand at supported airports, with aircraft-category filters. Panel opens from a small always-visible tab; a keyboard shortcut is optional.
 // @author       machpoint82
 // @match        https://www.geo-fs.com/geofs.php*
@@ -14,7 +14,6 @@
 // @grant        GM_getValue
 // @grant        unsafeWindow
 // @connect      raw.githubusercontent.com
-// @connect      goatcounter.com
 // @run-at       document-idle
 // ==/UserScript==
 
@@ -25,18 +24,6 @@
     // CONFIG
     // ------------------------------------------------------------------
     const GATES_URL = 'https://raw.githubusercontent.com/machpoint82/geofs-gate-spawner/refs/heads/main/gates.json';
-
-    const ANALYTICS_SITE_CODE = '<script data-goatcounter="https://machpoint82.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>';
-
-    function pingCounter(path) {
-        if (!ANALYTICS_SITE_CODE) return;
-        try {
-            const img = new Image();
-            img.referrerPolicy = 'no-referrer';
-            img.src = `https://${ANALYTICS_SITE_CODE}.goatcounter.com/count?p=${encodeURIComponent(path)}`;
-        } catch (e) { /* ignore, this should never break the actual script */ }
-    }
     // No default shortcut is shipped or forced on anyone. The panel is
     // always reachable via the small tab in the corner; a keyboard
     // shortcut is entirely optional and only exists if the user sets
@@ -582,7 +569,6 @@
         url.searchParams.set('alt', 0);
 
         status.textContent = `Spawning at ${icao} ${gate.name}…`;
-        pingCounter('/spawn');
         try { sessionStorage.setItem('gs_just_spawned', '1'); } catch (e) { /* ignore */ }
         window.location.href = url.toString();
     }
@@ -595,7 +581,6 @@
         buildUI();
         loadGates();
         holdParkingBrakeOnSpawn();
-        pingCounter('/loaded');
 
         const stored = GM_getValue('gs_shortcut', null);
         if (stored) {

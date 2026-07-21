@@ -9,7 +9,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Tampermonkey-Userscript-00485B?logo=tampermonkey&logoColor=white" alt="Tampermonkey userscript" />
   <img src="https://img.shields.io/badge/GeoFS-v3.9%20%7C%20v4.0-1d4ed8" alt="GeoFS v3.9 and v4.0" />
-  <img src="https://img.shields.io/badge/version-2.3.0-06b6d4" alt="Version 2.3.0" />
+  <img src="https://img.shields.io/badge/version-2.4.0-06b6d4" alt="Version 2.4.0" />
   <img src="https://img.shields.io/badge/license-Free%20to%20use%20%2F%20non--commercial-lightgrey" alt="License" />
 </p>
 

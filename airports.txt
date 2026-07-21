@@ -1,104 +1,252 @@
-ICAO	Airport
-EGLL	London Heathrow
-KJFK	New York JFK Intl
-EDDF	Frankfurt
-EDDM	Munich
-KIAD	Washington Dulles Intl
-KLAX	Los Angeles Intl
-KMSP	Minneapolis–Saint Paul Intl
-KORD	Chicago O'Hare Intl
-KSFO	San Francisco Intl
-LFPG	Paris Charles de Gaulle
-OMDB	Dubai Intl
-RJAA	Tokyo Narita Intl
-RJTT	Tokyo Haneda
-ZBAA	Beijing Capital Intl
-LEMD	Madrid Adolfo Suárez–Barajas
-YSSY	Sydney Kingsford Smith
-YMML	Melbourne
-OTHH	Doha Hamad Intl
-KATL	Atlanta Hartsfield–Jackson
-KDFW	Dallas/Fort Worth Intl
-KDEN	Denver Intl
-KSEA	Seattle–Tacoma Intl
-KLAS	Las Vegas Harry Reid Intl
-KMIA	Miami Intl
-KBOS	Boston Logan Intl
-KIAH	Houston George Bush Intercontinental
-KMCO	Orlando Intl
-KPHX	Phoenix Sky Harbor Intl
-KEWR	Newark Liberty Intl
-KDTW	Detroit Metro Wayne County
-KPHL	Philadelphia Intl
-KLGA	New York LaGuardia
-KBWI	Baltimore/Washington Thurgood Marshall Intl
-KSAN	San Diego Intl
-KTPA	Tampa Intl
-KSLC	Salt Lake City Intl
-SBGR	São Paulo/Guarulhos Intl
-SBGL	Rio de Janeiro/Galeão Intl
-SAEZ	Buenos Aires Ministro Pistarini (Ezeiza)
-SCEL	Santiago Arturo Merino Benítez
-SKBO	Bogotá El Dorado Intl
-MMMX	Mexico City Intl (Benito Juárez)
-MMUN	Cancún Intl
-MPTO	Panama Tocumen Intl
-EGKK	London Gatwick
-EGCC	Manchester
-LFPO	Paris Orly
-EDDB	Berlin Brandenburg
-EHAM	Amsterdam Schiphol
-LEBL	Barcelona El Prat
-LIRF	Rome Fiumicino (Leonardo da Vinci)
-LIMC	Milan Malpensa
-LSZH	Zurich
-LSGG	Geneva
-LOWW	Vienna Intl
-EBBR	Brussels
-EKCH	Copenhagen
-ENGM	Oslo Gardermoen
-ESSA	Stockholm Arlanda
-EPWA	Warsaw Chopin
-LKPR	Prague Václav Havel
-LHBP	Budapest Ferenc Liszt Intl
-LTFM	Istanbul Airport
-LTBA	Istanbul Atatürk (closed to commercial traffic)
-UUEE	Moscow Sheremetyevo
-UUDD	Moscow Domodedovo
-OMAA	Abu Dhabi Intl
-OERK	Riyadh King Khalid Intl
-OEJN	Jeddah King Abdulaziz Intl
-OJAI	Amman Queen Alia Intl
-LLBG	Tel Aviv Ben Gurion
-VHHH	Hong Kong Intl
-ZSPD	Shanghai Pudong Intl
-ZGGG	Guangzhou Baiyun Intl
-ZUUU	Chengdu Shuangliu Intl
-RJBB	Osaka Kansai Intl
-RKSI	Seoul Incheon Intl
-RCTP	Taipei Taoyuan Intl
-WSSS	Singapore Changi
-WMKK	Kuala Lumpur Intl
-VTBS	Bangkok Suvarnabhumi
-VTBD	Bangkok Don Mueang Intl
-VVTS	Ho Chi Minh City Tan Son Nhat Intl
-VVNB	Hanoi Noi Bai Intl
-VABB	Mumbai Chhatrapati Shivaji Maharaj Intl
-VIDP	New Delhi Indira Gandhi Intl
-VOMM	Chennai Intl
-VOBL	Bangalore Kempegowda Intl
-VECC	Kolkata Netaji Subhas Chandra Bose Intl
-RPLL	Manila Ninoy Aquino Intl
-WIII	Jakarta Soekarno–Hatta Intl
-YBBN	Brisbane
-YPPH	Perth
-YSCB	Canberra
-NZAA	Auckland
-NZCH	Christchurch Intl
-FACT	Cape Town Intl
-FAOR	Johannesburg O.R. Tambo Intl
-HECA	Cairo Intl
-DNMM	Lagos Murtala Muhammed Intl
-DIAP	Abidjan Félix-Houphouët-Boigny Intl
-GMMN	Casablanca Mohammed V Intl
-HKJK	Nairobi Jomo Kenyatta Intl
+EGLL
+KJFK
+EDDF
+EDDM
+KIAD
+KLAX
+KMSP
+KORD
+KSFO
+LFPG
+OMDB
+RJAA
+RJTT
+ZBAA
+LEMD
+YSSY
+YMML
+OTHH
+KATL
+KDFW
+KDEN
+KSEA
+KLAS
+KMIA
+KBOS
+KIAH
+KMCO
+KPHX
+KEWR
+KDTW
+KPHL
+KLGA
+KBWI
+KSAN
+KTPA
+KSLC
+SBGR
+SBGL
+SAEZ
+SCEL
+SKBO
+MMMX
+MMUN
+MPTO
+EGKK
+EGCC
+LFPO
+EDDB
+EHAM
+LEBL
+LIRF
+LIMC
+LSZH
+LSGG
+LOWW
+EBBR
+EKCH
+ENGM
+ESSA
+EPWA
+LKPR
+LHBP
+LTFM
+LTBA
+UUEE
+UUDD
+OMAA
+OERK
+OEJN
+OJAI
+LLBG
+VHHH
+ZSPD
+ZGGG
+ZUUU
+RJBB
+RKSI
+RCTP
+WSSS
+WMKK
+VTBS
+VTBD
+VVTS
+VVNB
+VABB
+VIDP
+VOMM
+VOBL
+VECC
+RPLL
+WIII
+YBBN
+YPPH
+YSCB
+NZAA
+NZCH
+FACT
+FAOR
+HECA
+DNMM
+DIAP
+GMMN
+HKJK
+KDCA
+KFLL
+KMDW
+KHOU
+KPDX
+KSTL
+KMCI
+KCLE
+KCVG
+KPIT
+KCLT
+KRDU
+KAUS
+KSAT
+KSJC
+KOAK
+KSMF
+KJAX
+KMSY
+KBNA
+KIND
+KCMH
+KMKE
+KOMA
+KABQ
+KTUS
+KELP
+KBUF
+KROC
+KSYR
+KPVD
+KBDL
+KPWM
+KRIC
+KORF
+KGSO
+KTYS
+KCHS
+KSAV
+KPBI
+KDAL
+KOKC
+KTUL
+KLIT
+KJAN
+KBHM
+KMEM
+KGRR
+KDSM
+KFAR
+KBIL
+KBOI
+KGEG
+KPSP
+KRNO
+KSNA
+KBUR
+KLGB
+KONT
+CYYZ
+CYVR
+CYUL
+CYYC
+CYOW
+CYEG
+CYHZ
+CYWG
+MMGL
+MMMY
+MMTJ
+MGGT
+MSLP
+MHTG
+MROC
+SBSP
+SBBR
+SBRJ
+SPJC
+SEQM
+SVMI
+SUMU
+SLLP
+EDDL
+EDDH
+EDDK
+EDDS
+LFML
+LFLL
+LFBO
+LIME
+LIPZ
+LIRN
+LPPT
+LPPR
+EIDW
+EGPH
+EGPF
+EGBB
+EGSS
+EGGW
+ESGG
+EFHK
+BIKF
+LGAV
+LCLK
+LMML
+LOWS
+LBSF
+LROP
+LZIB
+LJLJ
+LDZA
+EDDN
+EDDV
+ELLX
+UUWW
+ULLI
+OKBK
+OBBI
+OOMS
+LTAC
+RJCC
+RJOO
+RJFF
+RKPC
+ZSSS
+ZGSZ
+ZHHH
+ZLXY
+VCBI
+VNKT
+OPKC
+OPLA
+OPIS
+UTTT
+UBBB
+UGTB
+NFFN
+FALE
+FBSK
+FVHA
+FKKD
+FAPE
+FAGG
+FQMA
+GOOY
+DGAA
+DTTA
+DAAG

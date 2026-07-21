@@ -1,108 +1,18 @@
-KJFK
-KLAX
-KORD
-KATL
-KDFW
-KDEN
-KSFO
-KSEA
-KLAS
-KMIA
-KBOS
-KIAH
-KMCO
-KPHX
-KEWR
-KMSP
-KDTW
-KPHL
-KLGA
-KBWI
-KIAD
-KSAN
-KTPA
-KSLC
-KHNL
-KYYZ
-KYVR
-KYUL
-SBGR
-SBGL
-SAEZ
-SCEL
-SKBO
-MMMX
-MMUN
-MPTO
-EGLL
-EGKK
-EGCC
-LFPG
-LFPO
-EDDF
-EDDM
-EDDB
-EHAM
-LEMD
-LEBL
-LIRF
-LIMC
-LSZH
-LSGG
-LOWW
-EBBR
-EKCH
-ENGM
-ESSA
-EPWA
-LKPR
-LHBP
-LTFM
-LTBA
-UUEE
-UUDD
-OMDB
-OMAA
-OTHH
-OERK
-OEJN
-OJAI
-LLBG
-VHHH
-ZBAA
-ZSPD
-ZGGG
-ZUUU
-RJTT
-RJAA
-RJBB
-RKSI
-RCTP
-WSSS
-WMKK
-VTBS
-VTBD
-VVTS
-VVNB
-VABB
-VIDP
-VOMM
-VOBL
-VECC
-RPLL
-WIII
-YSSY
-YMML
-YBBN
-YPPH
-YSCB
-NZAA
-NZCH
-FACT
-FAOR
-HECA
-DNMM
-DIAP
-GMMN
-HKJK
-FAJS
+EGLL – London Heathrow Airport
+KJFK – John F. Kennedy International Airport (New York)
+EDDF – Frankfurt Airport
+EDDM – Munich Airport (Franz Josef Strauss)
+KIAD – Washington Dulles International Airport
+KLAX – Los Angeles International Airport
+KMSP – Minneapolis–Saint Paul International Airport
+KORD – Chicago O'Hare International Airport
+KSFO – San Francisco International Airport
+LFPG – Paris Charles de Gaulle Airport
+OMDB – Dubai International Airport
+RJAA – Narita International Airport (Tokyo)
+RJTT – Tokyo Haneda Airport
+ZBAA – Beijing Capital International Airport
+LEMD – Adolfo Suárez Madrid–Barajas Airport
+YSSY – Sydney Kingsford Smith Airport
+YMML – Melbourne Airport (Tullamarine)
+OTHH – Hamad International Airport (Doha)

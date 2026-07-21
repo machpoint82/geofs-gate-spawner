@@ -76,18 +76,28 @@ def get_recommended_scenery_id(icao, debug=False):
     return None, diagnostic
 
 
-def download_apt_dat_text(scenery_id):
+def download_apt_dat_text(scenery_id, icao=None):
     """GET /apiv1/scenery/{id} -> base64 zip -> raw apt.dat text."""
     data = fetch_json(f"{GATEWAY}/apiv1/scenery/{scenery_id}")
     pack = data.get("scenery", data)  # tolerate either response shape
     blob = base64.b64decode(pack["masterZipBlob"])
     with zipfile.ZipFile(io.BytesIO(blob)) as z:
         names = z.namelist()
+
+        # 1) The usual case: a file literally named apt.dat, anywhere in the zip.
         candidates = [n for n in names if n.lower().endswith("apt.dat")]
+
+        # 2) Some packs instead name it after the airport itself, e.g. "LEMD.dat",
+        # sometimes right at the top level rather than nested in "Earth nav data".
         if not candidates:
-            # Widen the net: some packs name the file after the ICAO code
-            # itself (e.g. "LEMD.dat") instead of the generic "apt.dat".
-            candidates = [n for n in names if n.lower().endswith(".dat") and "nav data" in n.lower()]
+            dat_files = [n for n in names if n.lower().endswith(".dat")]
+            if icao:
+                icao_matches = [n for n in dat_files if Path(n).stem.upper() == icao.upper()]
+                if icao_matches:
+                    candidates = icao_matches
+            if not candidates and len(dat_files) == 1:
+                candidates = dat_files  # only one .dat in the whole zip -- has to be it
+
         if not candidates:
             print(f"    (zip contents were: {names[:15]}{'...' if len(names) > 15 else ''})")
             return None
@@ -101,6 +111,7 @@ def main():
     ap.add_argument("--out", default="gates.json", help="Output JSON path (default: gates.json)")
     ap.add_argument("--gates-only", action="store_true", help="Drop hangar/tie-down spots, keep only type=gate")
     ap.add_argument("--delay", type=float, default=1.0, help="Seconds to wait between requests (default: 1.0)")
+    ap.add_argument("--force", action="store_true", help="Re-fetch airports even if already present in --out (default: skip airports already saved)")
     args = ap.parse_args()
 
     icaos = []
@@ -114,6 +125,17 @@ def main():
     out_path = Path(args.out)
     data = json.loads(out_path.read_text()) if out_path.exists() else {}
 
+    if not args.force:
+        already_have = [icao for icao in icaos if icao in data]
+        if already_have:
+            print(f"Skipping {len(already_have)} airport(s) already in {args.out}: {', '.join(already_have)}")
+            print("(use --force to re-fetch them anyway)\n")
+        icaos = [icao for icao in icaos if icao not in data]
+
+    if not icaos:
+        print("Nothing new to fetch.")
+        return
+
     for icao in icaos:
         print(f"Fetching {icao}...")
         try:
@@ -122,7 +144,7 @@ def main():
                 print(f"  -> no usable scenery pack for {icao} ({diagnostic}) -- try again, or double check the ICAO code")
                 continue
 
-            text = download_apt_dat_text(sid)
+            text = download_apt_dat_text(sid, icao=icao)
             if not text:
                 print(f"  -> apt.dat not found inside the scenery pack for {icao}, skipping")
                 continue

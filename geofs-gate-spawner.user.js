@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GeoFS Gate Spawner
 // @namespace    https://github.com/machpoint82/geofs-gate-spawner
-// @version      2.3.0
+// @version      2.4.0
 // @description  Spawn parked at a real gate/stand at supported airports, with aircraft-category filters. Panel opens from a small always-visible tab; a keyboard shortcut is optional.
 // @author       machpoint82
 // @match        https://www.geo-fs.com/geofs.php*
@@ -49,6 +49,7 @@
     let gatesDB = {};
     let activeFilters = new Set();
     let shortcut = null;
+    let currentAirport = null;
 
     // ------------------------------------------------------------------
     // STYLES
@@ -88,6 +89,20 @@
             border-radius: 8px; color: #f1f5f9; font-size: 12.5px; outline: none;
         }
         #gs-body select:focus, #gs-body input[type=text]:focus { border-color: #38bdf8; }
+        #gs-airport-combo { position: relative; }
+        #gs-airport-list {
+            display: none; position: absolute; top: calc(100% + 4px); left: 0; right: 0;
+            max-height: 160px; overflow-y: auto; z-index: 10;
+            background: #0f172a; border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 8px; box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+        }
+        #gs-airport-list.gs-open { display: block; }
+        #gs-airport-list .gs-airport-item {
+            padding: 7px 9px; font-size: 12.5px; color: #e5e7eb; cursor: pointer;
+        }
+        #gs-airport-list .gs-airport-item:hover,
+        #gs-airport-list .gs-airport-item.gs-highlighted { background: #1d4ed8; }
+        #gs-airport-list .gs-airport-empty { padding: 7px 9px; font-size: 12px; color: #94a3b8; }
         #gs-gate { height: 130px; }
         #gs-gate option { padding: 3px 4px; }
         #gs-filters { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 4px; }
@@ -323,9 +338,12 @@
             </div>
             <div id="gs-body">
                 <label class="gs-label">Airport</label>
-                <select id="gs-airport"><option>Loading…</option></select>
+                <div id="gs-airport-combo">
+                    <input id="gs-airport-input" type="text" placeholder="Search ICAO, e.g. EGLL" autocomplete="off" />
+                    <div id="gs-airport-list"></div>
+                </div>
 
-                <label class="gs-label">Search</label>
+                <label class="gs-label">Search gate</label>
                 <input id="gs-search" type="text" placeholder="e.g. 209R" />
 
                 <label class="gs-label">Filters</label>
@@ -360,7 +378,6 @@
             document.getElementById('gs-filters').appendChild(chip);
         });
 
-        document.getElementById('gs-airport').addEventListener('change', populateGateList);
         document.getElementById('gs-search').addEventListener('input', populateGateList);
         document.getElementById('gs-search').addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
@@ -378,27 +395,90 @@
             openShortcutSetup();
         });
         makeDraggable(root, document.getElementById('gs-header'));
+        wireAirportCombo();
+    }
+
+    // ------------------------------------------------------------------
+    // AIRPORT COMBOBOX (custom-built so it isn't limited by native <select>
+    // dropdown styling, and doubles as an ICAO search box)
+    // ------------------------------------------------------------------
+    function wireAirportCombo() {
+        const input = document.getElementById('gs-airport-input');
+        const list = document.getElementById('gs-airport-list');
+
+        function renderList(filterText) {
+            const q = (filterText || '').trim().toLowerCase();
+            const icaos = Object.keys(gatesDB).sort();
+            const matches = q ? icaos.filter(icao => icao.toLowerCase().includes(q)) : icaos;
+
+            list.innerHTML = '';
+            if (matches.length === 0) {
+                list.innerHTML = '<div class="gs-airport-empty">No airports match</div>';
+            } else {
+                matches.forEach((icao, i) => {
+                    const item = document.createElement('div');
+                    item.className = 'gs-airport-item';
+                    if (i === 0) item.classList.add('gs-highlighted');
+                    item.textContent = `${icao} (${gatesDB[icao].length} spots)`;
+                    item.dataset.icao = icao;
+                    item.addEventListener('mousedown', (e) => {
+                        // mousedown (not click) so it fires before the input's blur closes the list
+                        e.preventDefault();
+                        selectAirport(icao);
+                    });
+                    list.appendChild(item);
+                });
+            }
+            list.classList.add('gs-open');
+        }
+
+        function selectAirport(icao) {
+            currentAirport = icao;
+            input.value = `${icao} (${(gatesDB[icao] || []).length} spots)`;
+            list.classList.remove('gs-open');
+            populateGateList();
+        }
+
+        input.addEventListener('focus', () => {
+            input.select();
+            renderList('');
+        });
+        input.addEventListener('input', () => renderList(input.value));
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                const first = list.querySelector('.gs-airport-item');
+                if (first) selectAirport(first.dataset.icao);
+            } else if (e.key === 'Escape') {
+                list.classList.remove('gs-open');
+            }
+        });
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('#gs-airport-combo')) {
+                list.classList.remove('gs-open');
+            }
+        });
+
+        // expose selectAirport for populateAirportList() to pick a default
+        wireAirportCombo._select = selectAirport;
     }
 
     function populateAirportList() {
-        const sel = document.getElementById('gs-airport');
-        sel.innerHTML = '';
         const icaos = Object.keys(gatesDB).sort();
+        const input = document.getElementById('gs-airport-input');
         if (icaos.length === 0) {
-            sel.innerHTML = '<option>No airports loaded</option>';
+            input.value = '';
+            input.placeholder = 'No airports loaded';
             return;
         }
-        icaos.forEach(icao => {
-            const opt = document.createElement('option');
-            opt.value = icao;
-            opt.textContent = `${icao} (${gatesDB[icao].length} spots)`;
-            sel.appendChild(opt);
-        });
+        if (!currentAirport || !gatesDB[currentAirport]) {
+            currentAirport = icaos[0];
+        }
+        input.value = `${currentAirport} (${gatesDB[currentAirport].length} spots)`;
         populateGateList();
     }
 
     function populateGateList() {
-        const icao = document.getElementById('gs-airport').value;
+        const icao = currentAirport;
         const query = document.getElementById('gs-search').value.trim().toLowerCase();
         const gateSel = document.getElementById('gs-gate');
         gateSel.innerHTML = '';
@@ -471,7 +551,7 @@
     }
 
     function spawnAtSelectedGate() {
-        const icao = document.getElementById('gs-airport').value;
+        const icao = currentAirport;
         const idx = document.getElementById('gs-gate').value;
         const gate = (gatesDB[icao] || [])[idx];
         const status = document.getElementById('gs-status');

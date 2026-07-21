@@ -40,7 +40,7 @@ A couple of honesty notes while we're at it:
 ## Installation
 
 1. Install [Tampermonkey](https://www.tampermonkey.net/) for your browser.
-2. Click on `geofs-gate-spawner.user.js` in this repo, then click **Raw** — Tampermonkey will prompt you to install it.
+2. Click on [`geofs-gate-spawner.user.js`](geofs-gate-spawner.user.js) in this repo, then click **Raw** — Tampermonkey will prompt you to install it.
 3. Open GeoFS. A small icon appears in the bottom-right corner — click it to expand the panel.
 
 ## How to use it

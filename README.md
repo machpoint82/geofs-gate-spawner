@@ -32,6 +32,11 @@ Adds a small in-game panel to GeoFS where you can pick an airport and gate/stand
 
 **Right now this only covers [252 airports](airports.txt)** More airports will be added over time — check back on this repo for updates, and the script will auto-update itself once new airports are added to [`gates.json`](gates.json).
 [Airports List](Airports%20List) for full list.
+## Requesting an Airport
+
+Want to see a specific airport added to the gate spawner? Submit an Airport Request using the link below — just fill in the ICAO code, airport name, region, and any extra details (gate layout sources, parking charts, etc.), and it'll come through directly as an issue.
+
+👉 [Submit an Airport Request](https://github.com/machpoint82/geofs-gate-spawner/issues/new?template=airport_request.md)
 
 A couple of honesty notes while we're at it:
 - Gate coordinates come from open, community-maintained airport data, not an official survey — the vast majority line up correctly, but a small number of stands may be positioned slightly off, or the aircraft may creep forward a little after spawning before settling. If you spot one that's clearly wrong, please open an issue with the gate name so it can be fixed.

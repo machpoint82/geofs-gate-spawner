@@ -1,4 +1,5 @@
 <p align="center">
+![Preview](preview.png)
   <img src="icon.png" width="150" alt="GeoFS Gate Spawner icon" />
 </p>
 

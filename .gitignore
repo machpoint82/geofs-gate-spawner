@@ -1,0 +1,8 @@
+# Ignore 
+__pycache__/ 
+{ 
+{} 
+airports_to_fix 
+gates.json.bak 
+geofs_bulk_fetch.py 
+geofs_gate_extractor.py 

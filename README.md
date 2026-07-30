@@ -35,7 +35,7 @@ Adds a small in-game panel to GeoFS where you can pick an airport and gate/stand
 
 ## Current airport coverage
 
-**Right now this only covers [545 airports](airports.txt)** More airports will be added over time — check back on this repo for updates, and the script will auto-update itself once new airports are added to [`gates.json`](gates.json).
+**Right now this covers [1000+ airports](airports.txt)** More airports will be added over time — check back on this repo for updates, and the script will auto-update itself once new airports are added to [`gates.json`](gates.json).
 [Airports Coverage](Airports%20Coverage.txt) for full list.
 ## Requesting an Airport
 

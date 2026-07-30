@@ -1,0 +1,1080 @@
+BIKF - Keflavik International Airport
+CYEG - Edmonton International Airport
+CYHZ - Halifax Stanfield International Airport
+CYOW - Ottawa Macdonald-Cartier International Airport
+CYUL - Montreal-Pierre Elliott Trudeau International Airport
+CYVR - Vancouver International Airport
+CYWG - Winnipeg James Armstrong Richardson International Airport
+CYYC - Calgary International Airport
+CYYZ - Toronto Pearson International Airport
+DGAA - Kotoka International Airport
+DIAP - Felix Houphouet-Boigny International Airport
+DNMM - Murtala Muhammed International Airport
+DTTA - Tunis-Carthage International Airport
+EBBR - Brussels Airport
+EDDB - Berlin Brandenburg Airport
+EDDF - Frankfurt Airport
+EDDH - Hamburg Airport
+EDDK - Cologne Bonn Airport
+EDDL - Dusseldorf Airport
+EDDM - Munich Airport
+EDDN - Nuremberg Airport
+EDDS - Stuttgart Airport
+EDDV - Hannover Airport
+EFHK - Helsinki-Vantaa Airport
+EGBB - Birmingham Airport
+EGCC - Manchester Airport
+EGGW - London Luton Airport
+EGKK - London Gatwick Airport
+EGLL - London Heathrow Airport
+EGPF - Glasgow Airport
+EGPH - Edinburgh Airport
+EGSS - London Stansted Airport
+EHAM - Amsterdam Airport Schiphol
+EIDW - Dublin Airport
+EKCH - Copenhagen Airport
+ELLX - Luxembourg Airport
+ENGM - Oslo Gardermoen Airport
+EPKK - Krakow John Paul II International Airport
+EPWA - Warsaw Chopin Airport
+ESGG - Gothenburg Landvetter Airport
+ESSA - Stockholm Arlanda Airport
+EVRA - Riga International Airport
+FACT - Cape Town International Airport
+FAGG - George Airport
+FALE - King Shaka International Airport
+FAOR - O.R. Tambo International Airport
+FAPE - Port Elizabeth International Airport
+FBSK - Sir Seretse Khama International Airport
+FIMP - Sir Seewoosagur Ramgoolam International Airport
+FKKD - Douala International Airport
+FQMA - Maputo International Airport
+FVHA - Robert Gabriel Mugabe International Airport
+FZAA - N'djili Airport
+GMMN - Mohammed V International Airport
+GOOY - Leopold Sedar Senghor International Airport
+HAAB - Addis Ababa Bole International Airport
+HECA - Cairo International Airport
+HKJK - Jomo Kenyatta International Airport
+HTDA - Julius Nyerere International Airport
+KABQ - Albuquerque International Sunport
+KATL - Hartsfield-Jackson Atlanta International Airport
+KAUS - Austin-Bergstrom International Airport
+KBDL - Bradley International Airport
+KBHM - Birmingham-Shuttlesworth International Airport
+KBIL - Billings Logan International Airport
+KBNA - Nashville International Airport
+KBOI - Boise Airport
+KBOS - Boston Logan International Airport
+KBUF - Buffalo Niagara International Airport
+KBUR - Hollywood Burbank Airport
+KBWI - Baltimore/Washington International Thurgood Marshall Airport
+KCHS - Charleston International Airport
+KCLE - Cleveland Hopkins International Airport
+KCLT - Charlotte Douglas International Airport
+KCMH - John Glenn Columbus International Airport
+KCVG - Cincinnati/Northern Kentucky International Airport
+KDAL - Dallas Love Field
+KDCA - Ronald Reagan Washington National Airport
+KDEN - Denver International Airport
+KDFW - Dallas/Fort Worth International Airport
+KDSM - Des Moines International Airport
+KDTW - Detroit Metropolitan Wayne County Airport
+KELP - El Paso International Airport
+KEWR - Newark Liberty International Airport
+KFAR - Hector International Airport
+KFLL - Fort Lauderdale-Hollywood International Airport
+KGEG - Spokane International Airport
+KGRR - Gerald R. Ford International Airport
+KGSO - Piedmont Triad International Airport
+KHOU - William P. Hobby Airport
+KIAD - Washington Dulles International Airport
+KIAH - George Bush Intercontinental Airport
+KIND - Indianapolis International Airport
+KJAN - Jackson-Medgar Wiley Evers International Airport
+KJAX - Jacksonville International Airport
+KJFK - John F. Kennedy International Airport
+KLAS - Harry Reid International Airport
+KLAX - Los Angeles International Airport
+KLGA - LaGuardia Airport
+KLGB - Long Beach Airport
+KLIT - Bill and Hillary Clinton National Airport
+KMCI - Kansas City International Airport
+KMCO - Orlando International Airport
+KMDW - Chicago Midway International Airport
+KMEM - Memphis International Airport
+KMIA - Miami International Airport
+KMKE - Milwaukee Mitchell International Airport
+KMSP - Minneapolis-Saint Paul International Airport
+KMSY - Louis Armstrong New Orleans International Airport
+KOAK - Oakland International Airport
+KOKC - Will Rogers World Airport
+KOMA - Eppley Airfield
+KONT - Ontario International Airport
+KORD - Chicago O'Hare International Airport
+KORF - Norfolk International Airport
+KPBI - Palm Beach International Airport
+KPDX - Portland International Airport
+KPHL - Philadelphia International Airport
+KPHX - Phoenix Sky Harbor International Airport
+KPIT - Pittsburgh International Airport
+KPSP - Palm Springs International Airport
+KPVD - Rhode Island T. F. Green International Airport
+KPWM - Portland International Jetport
+KRDU - Raleigh-Durham International Airport
+KRIC - Richmond International Airport
+KRNO - Reno-Tahoe International Airport
+KROC - Greater Rochester International Airport
+KSAN - San Diego International Airport
+KSAT - San Antonio International Airport
+KSAV - Savannah/Hilton Head International Airport
+KSEA - Seattle-Tacoma International Airport
+KSFO - San Francisco International Airport
+KSJC - San Jose International Airport
+KSLC - Salt Lake City International Airport
+KSMF - Sacramento International Airport
+KSNA - John Wayne Airport
+KSTL - St. Louis Lambert International Airport
+KSYR - Syracuse Hancock International Airport
+KTPA - Tampa International Airport
+KTUL - Tulsa International Airport
+KTUS - Tucson International Airport
+KTYS - McGhee Tyson Airport
+LBSF - Sofia Airport
+LCLK - Larnaca International Airport
+LDZA - Zagreb Franjo Tudman Airport
+LEBL - Barcelona-El Prat Airport
+LEMD - Adolfo Suarez Madrid-Barajas Airport
+LEMG - Malaga-Costa del Sol Airport
+LEPA - Palma de Mallorca Airport
+LFBO - Toulouse-Blagnac Airport
+LFLL - Lyon-Saint-Exupery Airport
+LFML - Marseille Provence Airport
+LFPG - Paris Charles de Gaulle Airport
+LFPO - Paris Orly Airport
+LGAV - Athens International Airport
+LHBP - Budapest Ferenc Liszt International Airport
+LIMC - Milan Malpensa Airport
+LIME - Milan Bergamo Airport
+LIPZ - Venice Marco Polo Airport
+LIRF - Rome Leonardo da Vinci-Fiumicino Airport
+LIRN - Naples International Airport
+LJLJ - Ljubljana Joze Pucnik Airport
+LKPR - Vaclav Havel Airport Prague
+LLBG - Ben Gurion Airport
+LMML - Malta International Airport
+LOWS - Salzburg Airport
+LOWW - Vienna International Airport
+LPPR - Francisco Sa Carneiro Airport
+LPPT - Humberto Delgado Airport
+LROP - Bucharest Henri Coanda International Airport
+LSGG - Geneva Airport
+LSZH - Zurich Airport
+LTAC - Ankara Esenboga Airport
+LTAI - Antalya Airport
+LTBA - Istanbul Ataturk Airport
+LTFM - Istanbul Airport
+LYBE - Belgrade Nikola Tesla Airport
+LZIB - Bratislava Airport
+MGGT - La Aurora International Airport
+MHTG - Toncontin International Airport
+MMGL - Guadalajara International Airport
+MMMX - Mexico City International Airport
+MMMY - Monterrey International Airport
+MMTJ - Tijuana International Airport
+MMUN - Cancun International Airport
+MPTO - Tocumen International Airport
+MROC - Juan Santamaria International Airport
+MSLP - El Salvador International Airport
+NFFN - Nadi International Airport
+NZAA - Auckland Airport
+NZCH - Christchurch International Airport
+NZWN - Wellington International Airport
+OBBI - Bahrain International Airport
+OEDF - King Fahd International Airport
+OEJN - King Abdulaziz International Airport
+OERK - King Khalid International Airport
+OJAI - Queen Alia International Airport
+OKBK - Kuwait International Airport
+OLBA - Beirut-Rafic Hariri International Airport
+OMAA - Abu Dhabi International Airport
+OMDB - Dubai International Airport
+OMSJ - Sharjah International Airport
+OOMS - Muscat International Airport
+OPIS - Islamabad International Airport
+OPKC - Jinnah International Airport
+OPLA - Allama Iqbal International Airport
+OTHH - Hamad International Airport
+PANC - Ted Stevens Anchorage International Airport
+RCTP - Taiwan Taoyuan International Airport
+RJAA - Narita International Airport
+RJBB - Kansai International Airport
+RJCC - New Chitose Airport
+RJFF - Fukuoka Airport
+RJOO - Osaka International Airport
+RJTT - Tokyo Haneda Airport
+RKPC - Jeju International Airport
+RKSI - Incheon International Airport
+RPLL - Ninoy Aquino International Airport
+SAEZ - Ministro Pistarini International Airport
+SBBR - Brasilia International Airport
+SBCF - Tancredo Neves International Airport
+SBGL - Rio de Janeiro Galeao International Airport
+SBGR - Sao Paulo Guarulhos International Airport
+SBKP - Viracopos International Airport
+SBPA - Salgado Filho International Airport
+SBRF - Recife Guararapes International Airport
+SBRJ - Santos Dumont Airport
+SBSP - Congonhas Airport
+SBSV - Deputado Luis Eduardo Magalhaes International Airport
+SCEL - Arturo Merino Benitez International Airport
+SEQM - Mariscal Sucre International Airport
+SGAS - Silvio Pettirossi International Airport
+SKBO - El Dorado International Airport
+SKRG - Jose Maria Cordova International Airport
+SLLP - El Alto International Airport
+SPJC - Jorge Chavez International Airport
+SUMU - Carrasco International Airport
+SVMI - Simon Bolivar International Airport
+TJSJ - Luis Munoz Marin International Airport
+UACC - Nursultan Nazarbayev International Airport
+UBBB - Heydar Aliyev International Airport
+UGTB - Tbilisi International Airport
+UKBB - Boryspil International Airport
+ULLI - Pulkovo Airport
+UTTT - Tashkent International Airport
+UUDD - Domodedovo International Airport
+UUEE - Sheremetyevo International Airport
+UUWW - Vnukovo International Airport
+VABB - Chhatrapati Shivaji Maharaj International Airport
+VCBI - Bandaranaike International Airport
+VECC - Netaji Subhas Chandra Bose International Airport
+VGHS - Hazrat Shahjalal International Airport
+VHHH - Hong Kong International Airport
+VIDP - Indira Gandhi International Airport
+VMMC - Macau International Airport
+VNKT - Tribhuvan International Airport
+VOBL - Kempegowda International Airport
+VOHY - Rajiv Gandhi International Airport
+VOMM - Chennai International Airport
+VTBD - Don Mueang International Airport
+VTBS - Suvarnabhumi Airport
+VVNB - Noi Bai International Airport
+VVTS - Tan Son Nhat International Airport
+VYYY - Yangon International Airport
+WIII - Soekarno-Hatta International Airport
+WMKK - Kuala Lumpur International Airport
+WSSS - Singapore Changi Airport
+YBBN - Brisbane Airport
+YMML - Melbourne Airport
+YPPH - Perth Airport
+YSCB - Canberra Airport
+YSSY - Sydney Kingsford Smith Airport
+ZBAA - Beijing Capital International Airport
+ZGGG - Guangzhou Baiyun International Airport
+ZGSZ - Shenzhen Bao'an International Airport
+ZHHH - Wuhan Tianhe International Airport
+ZLXY - Xi'an Xianyang International Airport
+ZPPP - Kunming Changshui International Airport
+ZSAM - Xiamen Gaoqi International Airport
+ZSHC - Hangzhou Xiaoshan International Airport
+ZSNJ - Nanjing Lukou International Airport
+ZSPD - Shanghai Pudong International Airport
+ZSSS - Shanghai Hongqiao International Airport
+ZUCK - Chongqing Jiangbei International Airport
+ZUUU - Chengdu Shuangliu International Airport
+PHNL - Daniel K. Inouye International Airport
+DAAG - Houari Boumediene Airport
+RKSS - Gimpo International Airport
+RJGG - Chubu Centrair International Airport
+ROAH - Naha Airport
+ZBHH - Hohhot Baita International Airport
+ZYTX - Shenyang Taoxian International Airport
+ZYHB - Harbin Taiping International Airport
+ZSOF - Hefei Xinqiao International Airport
+ZWWW - Urumqi Diwopu International Airport
+RJFK - Kagoshima Airport
+RJSS - Sendai Airport
+RJSN - Niigata Airport
+EGAA - Belfast International Airport
+EGNX - East Midlands Airport
+EGPD - Aberdeen Airport
+EGNT - Newcastle Airport
+EGNM - Leeds Bradford Airport
+EGNH - Blackpool Airport
+EBCI - Brussels South Charleroi Airport
+EBLG - Liege Airport
+EDDP - Leipzig/Halle Airport
+EDDC - Dresden Airport
+EDDE - Erfurt-Weimar Airport
+EDDG - Munster Osnabruck Airport
+EDDW - Bremen Airport
+LFMN - Nice Cote d'Azur Airport
+LFBD - Bordeaux-Merignac Airport
+LFRS - Nantes Atlantique Airport
+LFRB - Brest Bretagne Airport
+LFST - Strasbourg Airport
+LIML - Milan Linate Airport
+LIMF - Turin Airport
+LIRA - Rome Ciampino Airport
+LIRQ - Florence Airport
+LEAL - Alicante-Elche Airport
+LEBB - Bilbao Airport
+LEVC - Valencia Airport
+GCTS - Tenerife South Airport
+GCLP - Gran Canaria Airport
+LPFR - Faro Airport
+LPMA - Madeira Airport
+LPPD - Joao Paulo II Airport
+EPGD - Gdansk Lech Walesa Airport
+EPKT - Katowice Airport
+EPWR - Wroclaw Airport
+LKTB - Brno-Turany Airport
+UKLL - Lviv Danylo Halytskyi International Airport
+UKHH - Kharkiv International Airport
+EYVI - Vilnius Airport
+EETN - Tallinn Airport
+ENBR - Bergen Airport Flesland
+ENZV - Stavanger Airport Sola
+ENVA - Trondheim Airport Vaernes
+ESMS - Malmo Airport
+EFRO - Rovaniemi Airport
+BIAR - Akureyri Airport
+LBWN - Varna Airport
+LYPG - Podgorica Airport
+BKPR - Pristina International Airport
+LATI - Tirana International Airport
+LWSK - Skopje International Airport
+LDSP - Split Airport
+LDDU - Dubrovnik Airport
+LSZB - Bern Airport
+LTBJ - Izmir Adnan Menderes Airport
+LTBS - Dalaman Airport
+LTCC - Diyarbakir Airport
+LTFJ - Sabiha Gokcen International Airport
+OIII - Mehrabad International Airport
+OISS - Shiraz International Airport
+OEMA - Prince Mohammad bin Abdulaziz Airport
+ORBI - Baghdad International Airport
+OPRN - Benazir Bhutto International Airport
+VOCI - Cochin International Airport
+VOHS - Rajiv Gandhi International Airport
+VAAH - Sardar Vallabhbhai Patel International Airport
+VTSP - Phuket International Airport
+VTCC - Chiang Mai International Airport
+VTSS - Hat Yai International Airport
+VVDN - Da Nang International Airport
+VVCR - Cam Ranh International Airport
+WBKK - Kota Kinabalu International Airport
+WADD - Ngurah Rai International Airport
+WARR - Juanda International Airport
+RPLC - Clark International Airport
+RPVM - Mactan-Cebu International Airport
+RPMD - Francisco Bangoy International Airport
+YBCS - Cairns Airport
+YBCG - Gold Coast Airport
+YPAD - Adelaide Airport
+YMHB - Hobart International Airport
+NZQN - Queenstown Airport
+NZDN - Dunedin Airport
+NZHN - Hamilton Airport
+NFNA - Nausori International Airport
+NTAA - Faa'a International Airport
+NWWW - La Tontouta International Airport
+AYPY - Port Moresby Jacksons International Airport
+PGUM - Antonio B. Won Pat International Airport
+PAFA - Fairbanks International Airport
+PAJN - Juneau International Airport
+PHTO - Hilo International Airport
+PHKO - Ellison Onizuka Kona International Airport
+PHOG - Kahului Airport
+TIST - Cyril E. King Airport
+TNCM - Princess Juliana International Airport
+MYNN - Lynden Pindling International Airport
+MUHA - Jose Marti International Airport
+MDPC - Punta Cana International Airport
+MDSD - Las Americas International Airport
+SKBQ - Ernesto Cortissoz International Airport
+SKCL - Alfonso Bonilla Aragon International Airport
+SPZO - Alejandro Velasco Astete International Airport
+SABE - Jorge Newbery Airfield
+SACO - Ingeniero Aeronautico Ambrosio L.V. Taravella International Airport
+SAME - Governor Francisco Gabrielli International Airport
+SBCT - Afonso Pena International Airport
+SBFL - Hercilio Luz International Airport
+SBEG - Eduardo Gomes International Airport
+SCFA - Andres Sabella Galvez International Airport
+SCIE - Carriel Sur International Airport
+SCTE - El Tepual Airport
+SEGU - Jose Joaquin de Olmedo International Airport
+SULS - Capitan Corbeta CA Curbelo International Airport
+SVMC - La Chinita International Airport
+SLCB - Jorge Wilstermann International Airport
+SLVR - Viru Viru International Airport
+HRYR - Kigali International Airport
+HUEN - Entebbe International Airport
+FCBB - Maya-Maya Airport
+FGSL - Malabo International Airport
+GABS - Modibo Keita International Airport
+HSSS - Khartoum International Airport
+HLLT - Tripoli International Airport
+DRRN - Diori Hamani International Airport
+DNAA - Nnamdi Azikiwe International Airport
+DXXX - Gnassingbe Eyadema International Airport
+DBBB - Cadjehoun Airport
+GLRB - Roberts International Airport
+GVAC - Amilcar Cabral International Airport
+FXMM - Moshoeshoe I International Airport
+FYWH - Hosea Kutako International Airport
+FMMI - Ivato International Airport
+FMEE - Roland Garros Airport
+FKKN - Ngaoundere Airport
+FKKR - Garoua International Airport
+HKMO - Moi International Airport
+HKEL - Eldoret International Airport
+HLLB - Benina International Airport
+HESH - Sharm El Sheikh International Airport
+HELX - Luxor International Airport
+HEBA - Borg El Arab Airport
+OERY - Riyadh Air Base
+OESH - Sharurah Airport
+OETF - Ta'if International Airport
+OKKK - Kuwait International Airport
+OJAM - Amman Civil Airport
+OSDI - Damascus International Airport
+OTBD - Doha International Airport
+OMAL - Al Ain International Airport
+OMDW - Al Maktoum International Airport
+OMFJ - Fujairah International Airport
+OMRK - Ras Al Khaimah International Airport
+VAGP - Dabolim Airport
+VANP - Dr. Babasaheb Ambedkar International Airport
+VAPO - Pune Airport
+VEPT - Lok Nayak Jayaprakash Airport
+VEGT - Lokpriya Gopinath Bordoloi International Airport
+VOTV - Trivandrum International Airport
+VOCB - Coimbatore International Airport
+VILK - Chaudhary Charan Singh International Airport
+VILB - Lal Bahadur Shastri Airport
+VOBZ - Vijayawada Airport
+VOTR - Tiruchirappalli International Airport
+VYMD - Mandalay International Airport
+WBSB - Brunei International Airport
+WBGG - Kuching International Airport
+WIHH - Halim Perdanakusuma International Airport
+WIMM - Kualanamu International Airport
+WITT - Sultan Iskandar Muda International Airport
+WIOS - Supadio Airport
+RPVK - Kalibo International Airport
+RPVI - Iloilo International Airport
+YBMA - Mount Isa Airport
+YBRM - Broome International Airport
+YBHM - Hamilton Island Airport
+YCFS - Coffs Harbour Airport
+YELD - Emerald Airport
+YHID - Horn Island Airport
+YMAY - Albury Airport
+YPBO - Paraburdoo Airport
+YQLP - Quilpie Airport
+YSDU - Dubbo City Regional Airport
+YSHT - Shepparton Airport
+YSTW - Tamworth Airport
+YWLM - Newcastle Airport
+NZRO - Rotorua Airport
+NZTG - Tauranga Airport
+NZNS - Nelson Airport
+NSFA - Faleolo International Airport
+NSTU - Pago Pago International Airport
+NTTB - Bora Bora Airport
+NWWD - Kone Airport
+PGRO - Rota International Airport
+PKMJ - Marshall Islands International Airport
+PACD - Cold Bay Airport
+PADQ - Kodiak Airport
+PAEN - Kenai Municipal Airport
+PAHO - Homer Airport
+PAIL - Iliamna Airport
+PAYA - Yakutat Airport
+PHLI - Lihue Airport
+TAPA - V. C. Bird International Airport
+TBPB - Grantley Adams International Airport
+TGPY - Maurice Bishop International Airport
+TISX - Henry E. Rohlsen Airport
+TJPS - Mercedita Airport
+TNCA - Queen Beatrix International Airport
+TNCC - Hato International Airport
+TTPP - Piarco International Airport
+TXKF - L.F. Wade International Airport
+MYGF - Grand Bahama International Airport
+MUVR - Juan Gualberto Gomez Airport
+MUSC - Abel Santamaria Airport
+MUCU - Antonio Maceo Airport
+MHLC - Goloson International Airport
+MHLM - Ramon Villeda Morales International Airport
+MNMG - Augusto C. Sandino International Airport
+MPDA - Enrique Malek International Airport
+MPMG - Albrook Marcos A. Gelabert International Airport
+MRPV - Tobias Bolanos International Airport
+MRLB - Daniel Oduber Quiros International Airport
+MMAA - General Juan N. Alvarez International Airport
+MMCZ - Cozumel International Airport
+MMHO - General Ignacio Pesqueira Garcia International Airport
+MMMD - Manuel Crescencio Rejon International Airport
+MMSD - Los Cabos International Airport
+MMSP - Ponciano Arriaga International Airport
+MMTO - Licenciado Adolfo Lopez Mateos International Airport
+MMVR - General Heriberto Jara International Airport
+SKCG - Rafael Nunez International Airport
+SKCC - Camilo Daza International Airport
+SKPE - Matecana International Airport
+SKBG - Palonegro International Airport
+SPHI - Capitan FAP Carlos Martinez de Pinillos International Airport
+SPQU - Rodriguez Ballon International Airport
+SPRU - Capitan FAP Carlos Roldan Semirario International Airport
+SARE - Resistencia International Airport
+SARI - Cataratas del Iguazu International Airport
+SASA - Martin Miguel de Guemes International Airport
+SAZS - San Carlos de Bariloche Airport
+SAWH - Ushuaia - Malvinas Argentinas International Airport
+SBGO - Santa Genoveva Airport
+SBCG - Campo Grande International Airport
+SBBE - Val de Cans International Airport
+SBMO - Zumbi dos Palmares International Airport
+SBRB - Placido de Castro International Airport
+SCDA - Diego Aracena International Airport
+SCQP - La Araucania Airport
+SGES - Guarani International Airport
+SVBC - General Jose Antonio Anzoategui International Airport
+SLET - El Trompillo Airport
+EDFH - Frankfurt-Hahn Airport
+EDSB - Karlsruhe/Baden-Baden Airport
+EDJA - Memmingen Airport
+EDMO - Oberpfaffenhofen Airport
+EDMA - Augsburg Airport
+EDHL - Luebeck Airport
+LFKB - Bastia-Poretta Airport
+LFKJ - Ajaccio Napoleon Bonaparte Airport
+LFLS - Grenoble-Isere Airport
+LFLX - Chateauroux-Centre Airport
+LFOB - Beauvais-Tille Airport
+LFPB - Paris-Le Bourget Airport
+LFQQ - Lille Airport
+LIBR - Brindisi Airport
+LIBD - Bari Airport
+LICC - Catania-Fontanarossa Airport
+LICJ - Palermo Airport
+LIEO - Olbia Costa Smeralda Airport
+LIEA - Alghero-Fertilia Airport
+LIPX - Verona Villafranca Airport
+LIPY - Ancona Falconara Airport
+LIRP - Pisa International Airport
+LEST - Santiago de Compostela Airport
+LECO - A Coruna Airport
+LEVX - Vigo Airport
+LEAS - Asturias Airport
+LEZL - Seville Airport
+LEGR - Federico Garcia Lorca Granada-Jaen Airport
+LEAM - Almeria Airport
+LEIB - Ibiza Airport
+LELC - Murcia-San Javier Airport
+LEMH - Menorca Airport
+GCXO - Tenerife North Airport
+GCFV - Fuerteventura Airport
+GCRR - Lanzarote Airport
+GCGM - La Gomera Airport
+LPAZ - Santa Maria Airport
+LPPS - Porto Santo Airport
+LPHR - Horta Airport
+EPPO - Poznan-Lawica Airport
+EPSC - Szczecin-Goleniow Airport
+EPLL - Lodz Wladyslaw Reymont Airport
+LKMT - Ostrava Leos Janacek Airport
+LKPD - Pardubice Airport
+LZKZ - Kosice International Airport
+LZTT - Poprad-Tatry Airport
+LHDC - Debrecen International Airport
+LHSM - Heviz-Balaton Airport
+LRCL - Cluj-Napoca International Airport
+LRIA - Iasi International Airport
+LRSB - Sibiu International Airport
+LRTR - Timisoara Traian Vuia International Airport
+LRCK - Constanta Mihail Kogalniceanu Airport
+LRBV - Brasov-Ghimbav International Airport
+UKKK - Kiev Zhuliany International Airport
+UKOO - Odessa International Airport
+UKDD - Dnipro International Airport
+UMMS - Minsk National Airport
+EVLA - Liepaja International Airport
+ENTC - Tromso Airport
+ENBO - Bodo Airport
+ENAL - Alesund Airport
+ESPA - Lulea Airport
+ESNN - Sundsvall-Timra Airport
+ESNU - Umea Airport
+ESNZ - Are Ostersund Airport
+EFTU - Turku Airport
+EFKU - Kuopio Airport
+EFOU - Oulu Airport
+BIRK - Reykjavik Airport
+LBPD - Plovdiv Airport
+LBSZ - Stara Zagora Airport
+LQSA - Sarajevo International Airport
+LQMO - Mostar International Airport
+LQBK - Banja Luka International Airport
+LYNI - Nis Constantine the Great Airport
+LYTV - Tivat Airport
+LYBT - Belgrade Batajnica Airport
+LYKV - Morava Airport
+LWSL - Ohrid St. Paul the Apostle Airport
+LWSB - Skopje International Airport
+LDPL - Pula Airport
+LDZD - Zadar Airport
+LDOS - Osijek Airport
+LJMB - Maribor Edvard Rusjan Airport
+LJPZ - Portoroz Airport
+LSZA - Samedan Airport
+LSZL - Locarno Airport
+LSZR - St. Gallen-Altenrhein Airport
+LSGS - Sion Airport
+LSME - Emmen Air Base
+LTAG - Adana Airport
+LTFE - Bodrum-Milas Airport
+LTCI - Van Ferit Melen Airport
+LTCK - Mus Airport
+LTAS - Zonguldak Airport
+LTAN - Konya Airport
+LTAU - Kayseri Airport
+LTAY - Denizli Cardak Airport
+LTFC - Isparta Suleyman Demirel Airport
+LTFG - Gazipasa-Alanya Airport
+LTFH - Samsun-Carsamba Airport
+LTAF - Adana Sakirpasa Airport
+LTCG - Trabzon Airport
+LTCO - Agri Airport
+LTCT - Igdir Airport
+OIIE - Imam Khomeini International Airport
+OIKB - Bandar Abbas International Airport
+OIFM - Isfahan International Airport
+OITT - Tabriz International Airport
+OIKK - Kerman Airport
+OEAH - Al Ahsa Airport
+OEBA - Al Baha Airport
+OEBH - Bisha Airport
+OEDR - King Abdulaziz Air Base
+OEGN - Jizan Airport
+OEHL - Hail Airport
+OEJB - Jubail Airport
+OEJF - King Abdullah bin Abdulaziz Airport
+OEMK - Medina Airport
+OENN - Nejran Airport
+OEPS - Prince Sultan Air Base
+OERF - Rafha Airport
+OEYN - Yenbo Airport
+OBKH - Bahrain Air Base
+OKAJ - Ahmed Al Jaber Air Base
+OKAS - Ali Al Salem Air Base
+OKBS - Boubyan Airport
+ORER - Erbil International Airport
+ORMM - Basra International Airport
+ORNI - Al Najaf International Airport
+ORSU - Sulaymaniyah International Airport
+ORBM - Mosul International Airport
+OJMF - King Hussein Air Base
+OJMN - Maan Airport
+OLKA - Rene Mouawad Air Base
+OSKL - Kamishly Airport
+OSAP - Aleppo International Airport
+OSLK - Latakia Airport
+OISL - Bandar Lengeh Airport
+OOSA - Salalah Airport
+OPMT - Multan International Airport
+OPFA - Faisalabad International Airport
+OPPS - Peshawar International Airport
+OPQT - Quetta International Airport
+OPSF - Sufi Barkat Airport
+OPSK - Sukkur Airport
+OPST - Sialkot International Airport
+OPTH - Turbat International Airport
+VAPR - Porbandar Airport
+VAAK - Akola Airport
+VAID - Devi Ahilyabai Holkar Airport
+VAJB - Jabalpur Airport
+VARK - Rajkot Airport
+VASU - Surat Airport
+VCRI - Mattala Rajapaksa International Airport
+VGSY - Shah Amanat International Airport
+VGEG - Cox's Bazar Airport
+VGJR - Jessore Airport
+VGCB - Cox's Bazar Airport
+VNPR - Pokhara Airport
+VNLK - Lukla Airport
+VNBP - Bharatpur Airport
+VNVT - Biratnagar Airport
+VTCI - Mae Fah Luang - Chiang Rai International Airport
+VTPP - Phitsanulok Airport
+VTSM - Samui Airport
+VTBU - U-Tapao International Airport
+VTUU - Ubon Ratchathani Airport
+VVCT - Can Tho International Airport
+VVBM - Buon Ma Thuot Airport
+VVCA - Chu Lai Airport
+VVCS - Con Dao Airport
+VVDB - Dien Bien Phu Airport
+VVGL - Gia Lam Airport
+VVPC - Phu Cat Airport
+VVPK - Pleiku Airport
+VVTH - Tuy Hoa Airport
+VVTX - Thanh Hoa Airport
+WBKW - Tawau Airport
+WBKS - Sandakan Airport
+WBKL - Labuan Airport
+WBGR - Miri Airport
+WADL - Lombok International Airport
+WADS - Sumbawa Airport
+WAHI - Yogyakarta International Airport
+WAJJ - Sentani Airport
+WAMM - Sam Ratulangi Airport
+WIKK - Hang Nadim Airport
+WIMN - Binaka Airport
+WIOO - Supadio Airport
+WIPA - Sultan Thaha Airport
+WIPT - Minangkabau International Airport
+WITA - Teuku Cut Ali Airport
+WITC - Cut Nyak Dien Airport
+WITN - Maimun Saleh Airport
+RPLB - Subic Bay International Airport
+RPMC - Awang Airport
+RPVE - Godofredo P. Ramos Airport
+RPVP - Puerto Princesa International Airport
+RPVT - Tagbilaran Airport
+RPVA - Daniel Z. Romualdez Airport
+RPUW - Marinduque Airport
+RPLI - Laoag International Airport
+RPLU - Lubang Airport
+RPVR - Roxas Airport
+RPVD - Sibulan Airport
+YBHI - Broken Hill Airport
+YBKE - Bourke Airport
+YBNA - Ballina Byron Gateway Airport
+YBTH - Bathurst Airport
+YBUD - Bundaberg Airport
+YBAS - Alice Springs Airport
+YBSU - Sunshine Coast Airport
+YCNK - Cessnock Airport
+YCOM - Cooma-Snowy Mountains Airport
+YDBY - Derby Airport
+YDPO - Devonport Airport
+YECH - Echuca Airport
+YEML - Emerald Airport
+YESP - Esperance Airport
+YFRT - Forrest Airport
+YGLA - Gladstone Airport
+YGTE - Groote Eylandt Airport
+YHBA - Hervey Bay Airport
+YHML - Hamilton Airport
+YHOT - Mount Hotham Airport
+YIVL - Inverell Airport
+YJAB - Jabiru Airport
+YKII - King Island Airport
+YKSC - Kingscote Airport
+YLIS - Lismore Airport
+YLTV - Latrobe Valley Airport
+YMAV - Avalon Airport
+YMIA - Mildura Airport
+YMND - Maitland Airport
+YMOG - Mount Magnet Airport
+YMRY - Moruya Airport
+YMTG - Mount Gambier Airport
+YNBR - Narrabri Airport
+YNRC - Naracoorte Airport
+YNTN - Normanton Airport
+YNWN - Newman Airport
+YOLD - Olympic Dam Airport
+YPCC - Perth Jandakot Airport
+YPEA - Pearce Airport
+YPJT - Perth Jandakot Airport
+YPKA - Karratha Airport
+YPKU - Kununurra Airport
+YPLM - Learmonth Airport
+YPOD - Portland Airport
+YPPD - Port Hedland International Airport
+YPTN - Tindal Airport
+YPXM - Christmas Island Airport
+YQNS - Queenstown Airport
+YQDI - Quirindi Airport
+YRED - Richmond Airport
+YRTI - Rottnest Island Airport
+YSGE - St George Airport
+YSHL - Shellharbour Airport
+YSII - Saibai Island Airport
+YSNF - Norfolk Island Airport
+YSNW - Nowra Airport
+YSPT - Southport Airport
+YTAM - Taroom Airport
+YTBB - Tumby Bay Airport
+YTGM - Thargomindah Airport
+YTIB - Thursday Island Airport
+YTNK - Tennant Creek Airport
+YTRE - Taree Airport
+YTWB - Toowoomba Airport
+YTYH - Tyabb Airport
+YUEE - Yuendumu Airport
+YUMA - Yuendumu Airport
+YUNY - Cluny Airport
+YWDH - Windorah Airport
+YWGT - Wangaratta Airport
+YWHA - Whyalla Airport
+YWKB - Warrnambool Airport
+YWLU - Wiluna Airport
+YWOL - Wollongong Airport
+YWST - West Sale Airport
+YWYY - Wynyard Airport
+YYKI - Yorke Island Airport
+YYND - Yuendumu Airport
+YYWG - Yanakie Airport
+NZPM - Palmerston North Airport
+NZWP - Whenuapai Air Base
+NFTF - Fua'amotu International Airport
+NFTL - Lifuka Island Airport
+NFTO - Mata'aho Airport
+NFKB - Kaufana Airport
+NTTG - Rangiroa Airport
+NTTO - Hao Airport
+NWWK - Koumac Airport
+NWWE - Ile des Pins Airport
+NWWL - Lifou Airport
+NWWM - Mare Airport
+NWWX - Tiga Airport
+AYMH - Mount Hagen Airport
+AYMD - Madang Airport
+AYMO - Momote Airport
+AYGN - Gurney Airport
+AYKT - Kiunga Airport
+AYGR - Girua Airport
+AYGA - Goroka Airport
+AYDU - Daru Airport
+AYVN - Vanimo Airport
+AYWK - Wewak Airport
+PGSN - Saipan International Airport
+PGWT - Tinian International Airport
+PTYA - Yap International Airport
+PTRO - Babelthuap Airport
+PKWA - Bucholz Army Air Field
+PTSA - Kosrae International Airport
+PTKK - Chuuk International Airport
+PTTP - Pohnpei International Airport
+PASA - Savoonga Airport
+PAKT - Ketchikan International Airport
+PABE - Bethel Airport
+PAMR - Merrill Field
+PASY - Eareckson Air Station
+PATK - Talkeetna Airport
+PAWD - Seward Airport
+PHMK - Molokai Airport
+TDPD - Douglas-Charles Airport
+TJBQ - Rafael Hernandez Airport
+TJIG - Fernando Luis Ribas Dominicci Airport
+TJMZ - Eugenio Maria de Hostos Airport
+TKPK - Robert L. Bradshaw International Airport
+TLPL - Hewanorra International Airport
+TNCB - Flamingo International Airport
+TNCE - F. D. Roosevelt Airport
+MYEG - George Town Airport
+MYSM - San Salvador Airport
+MUHG - Frank Pais Airport
+MUMO - Manzanillo Airport
+MUNG - Rafael Cabrera Airport
+MDPP - Gregorio Luperon International Airport
+MDST - Cibao International Airport
+MDBH - Maria Montez International Airport
+MGTK - Mundo Maya International Airport
+MGQZ - Quetzaltenango Airport
+MHRO - Juan Manuel Galvez International Airport
+MHSC - Coronel Enrique Soto Cano Air Base
+MHPR - Palmerola International Airport
+MNBL - Bluefields Airport
+MNCH - Corn Island Airport
+MNJG - Jinotega Airport
+MNPC - Puerto Cabezas Airport
+MNRS - Rivas Airport
+MPBO - Bocas del Toro Airport
+MPVR - Puerto Obaldia Airport
+MRBA - Buenos Aires Airport
+MRGF - Golfito Airport
+MRLC - Los Chiles Airport
+MRNC - Nicoya Airport
+MRPM - Palmar Sur Airport
+MSSS - Ilopango International Airport
+MSSM - El Salvador International Airport
+MSAC - Ahuachapan Airport
+MMBT - Bahias de Huatulco International Airport
+MMCL - Federal de Bachigualato International Airport
+MMCM - Ciudad del Carmen International Airport
+MMCU - General Roberto Fierro Villalobos International Airport
+MMDO - Durango International Airport
+MMEP - Amado Nervo International Airport
+MMGM - General Jose Maria Yanez International Airport
+MMIA - Colima Airport
+MMLO - Del Bajio International Airport
+MMLP - Manuel Marquez de Leon International Airport
+MMLT - Loreto International Airport
+MMML - General Rodolfo Sanchez Taboada International Airport
+MMMM - General Francisco J. Mujica International Airport
+MMMT - Minatitlan/Coatzacoalcos National Airport
+MMMZ - General Rafael Buelna International Airport
+MMNL - Quetzalcoatl International Airport
+MMPA - El Tajin National Airport
+MMPB - Hermanos Serdan International Airport
+MMPC - Ingeniero Alberto Acuna Ongay International Airport
+MMPG - Piedras Negras International Airport
+MMPS - Puerto Escondido International Airport
+MMPY - Puerto Penasco International Airport
+MMRX - General Lucio Blanco International Airport
+MMSL - Cabo San Lucas International Airport
+MMTB - Teran Air Base
+MMTM - General Francisco Javier Mina International Airport
+MMTP - Tapachula International Airport
+MMVA - Carlos Rovirosa Perez International Airport
+MMZC - General Leobardo C. Ruiz International Airport
+MMZH - Ixtapa-Zihuatanejo International Airport
+MMZO - Playa de Oro International Airport
+SKSM - Simon Bolivar International Airport
+SKSP - Gustavo Rojas Pinilla International Airport
+SKRH - Almirante Padilla Airport
+SKMZ - La Nubia Airport
+SKMD - Enrique Olaya Herrera Airport
+SKUI - El Carano Airport
+SKVV - Vanguardia Airport
+SKYP - El Yopal Airport
+SPIM - Jorge Chavez International Airport
+SPYL - Capitan FAP Victor Montes Arias International Airport
+SPJL - Inca Manco Capac International Airport
+SPME - Capitan FAP Pedro Canga Rodriguez Airport
+SPSO - Capitan FAP Renan Elias Olivera Airport
+SPST - Cadete FAP Guillermo del Castillo Paredes Airport
+SPTR - Trompeteros Airport
+SANL - Capitán Vicente Almandos Almonacid Airport
+SAOC - Rio Cuarto Airport
+SAZN - Presidente Peron International Airport
+SAAR - Rosario Islas Malvinas International Airport
+SAOU - Brigadier Mayor Cesar Raul Ojeda Airport
+SAAP - General Justo Jose de Urquiza Airport
+SAVR - Alto Rio Senguer Airport
+SAVE - Esquel Airport
+SANT - Teniente General Benjamin Matienzo International Airport
+SBNF - Ministro Victor Konder International Airport
+SBVT - Eurico de Aguiar Salles Airport
+SBIZ - Prefeito Renato Moreira Airport
+SBJU - Orlando Bezerra de Menezes Airport
+SBPL - Senador Nilo Coelho Airport
+SBPJ - Brigadeiro Lysias Rodrigues Airport
+SBAR - Santa Maria Airport
+SBFN - Fernando de Noronha Airport
+SBJP - Presidente Castro Pinto International Airport
+SBKG - Presidente Joao Suassuna Airport
+SBJV - Lauro Carneiro de Loyola Airport
+SBJE - Comte. Ariston Pessoa Regional Airport
+SBPV - Governador Jorge Teixeira de Oliveira International Airport
+SBTE - Senador Petronio Portella Airport
+SBUL - Tenente Coronel Aviador Cesar Bombonato Airport
+SCCI - Presidente Carlos Ibanez del Campo International Airport
+SCIP - Mataveri International Airport
+SCSE - La Florida Airport
+SCVD - Pichoy Airport
+SCPQ - Mocopulli Airport
+SCNT - Lieutenant Julio Gallardo Airport
+SEMT - Eloy Alfaro International Airport
+SEST - San Cristobal Airport
+SEGS - Seymour Airport
+SGCO - Concepcion Airport
+SGEN - Encarnacion Airport
+SGME - Dr. Luis Maria Argana International Airport
+SUPE - Capitan Corbeta CA Curbelo International Airport
+SUDU - Santa Bernardina International Airport
+SURV - Rivera International Airport
+SVVA - Arturo Michelena International Airport
+SVBS - Escuela Mariscal Sucre Airport
+SVSA - San Antonio del Tachira Airport
+SVJC - Jose Leonardo Chirinos Airport
+SVCP - General Jose Francisco Bermudez Airport
+SVCR - Jose Leonardo Chirino Airport
+SVCS - Oscar Machado Zuloaga International Airport
+SVSO - Mayor Buenaventura Vivas Airport
+SVST - San Tome Airport
+SVSR - San Fernando de Apure Airport
+SLOR - Oruro Airport
+SLPO - Capitan Nicolas Rojas Airport
+SLTR - Teniente Jorge Henrich Arauz Airport
+SLRY - Reyes Airport
+SLAL - Alcantari International Airport
+SLAS - Ascension de Guarayos Airport
+SLBJ - Bermejo Airport
+SLCA - Camiri Airport
+SLCO - Capitan Anibal Arab Airport
+SLGY - Guayaramerin Airport
+SLHI - Chimore Airport
+SLHJ - San Ignacio de Moxos Airport
+SLJE - San Jose de Chiquitos Airport
+SLJO - San Joaquin Airport
+SLJV - San Javier Airport
+SLLJ - Laja Airport
+SLMG - Magdalena Airport
+SLPS - Capitan Av. Salvador Ogaya G. Airport
+SLRI - Riberalta Airport
+SLRQ - Rurrenabaque Airport
+SLSA - Santa Ana del Yacuma Airport
+SLSB - Capitan German Quiroga Guardia Airport
+SLSI - San Ignacio de Velasco Airport
+SLSM - San Ignacio de Moxos Airport
+SLSU - Juana Azurduy de Padilla International Airport
+SLTJ - Capitan Oriel Lea Plaza Airport
+SLUY - Uyuni Airport
+SLVG - Vallegrande Airport
+SLVM - Villamontes Airport
+SLYA - Yacuiba Airport
+ZBTJ - Tianjin Binhai International Airport
+ZYTL - Dalian Zhoushuizi International Airport
+ZHCC - Zhengzhou Xinzheng International Airport
+ZSQD - Qingdao Liuting International Airport
+ZSFZ - Fuzhou Changle International Airport
+ZSWX - Wuxi Shuofang Airport
+ZSWZ - Wenzhou Longwan International Airport
+ZSJN - Jinan Yaoqiang International Airport
+ZSNB - Ningbo Lishe International Airport
+ZSWH - Weihai Airport
+ZSYT - Yantai Penglai International Airport
+ZUGY - Guiyang Longdongbao International Airport
+ZUTF - Chengdu Tianfu International Airport
+ZUXC - Xichang Qingshan Airport
+ZUTR - Tongren Fenghuang Airport
+ZWSH - Kashgar Airport
+ZLXN - Xining Caojiabao International Airport
+ZLLL - Lanzhou Zhongchuan International Airport
+ZLDH - Dunhuang Airport
+ZLIC - Yinchuan Hedong International Airport
+ZLLN - Longnan Chengzhou Airport
+ZLGM - Golmud Airport
+ZLHZ - Hanzhong Airport
+ZLGW - Jiayuguan Airport
+ZBAR - Arxan Airport
+ZBDS - Dongsheng Airport
+ZBLA - Hailar Dongshan Airport
+ZBMZ - Manzhouli Xijiao Airport
+ZBOW - Baotou Airport
+ZBSJ - Shijiazhuang Zhengding International Airport
+ZBYN - Taiyuan Wusu International Airport
+ZGBH - Beihai Fucheng Airport
+ZGKL - Guilin Liangjiang International Airport
+ZGNN - Nanning Wuxu International Airport
+ZGOW - Jieyang Chaoshan International Airport
+ZGSD - Zhuhai Jinwan Airport
+ZGYL - Yulin Fumian Airport
+ZHES - Enshi Xujiaping Airport
+ZHGH - Guangzhou Airport
+ZHLY - Luoyang Beijiao Airport
+ZHNY - Nanyang Jiangying Airport
+ZHXF - Xiangyang Liuji Airport
+ZHYC - Yichang Sanxia Airport
+ZJHK - Haikou Meilan International Airport
+ZJSY - Sanya Phoenix International Airport
+ZKPY - Pyongyang Sunan International Airport

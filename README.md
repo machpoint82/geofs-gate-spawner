@@ -41,7 +41,9 @@ Adds a small in-game panel to GeoFS where you can pick an airport and gate/stand
 
 Want to see a specific airport added to the gate spawner? Submit an Airport Request using the link below — just fill in the ICAO code, airport name, region, and any extra details (gate layout sources, parking charts, etc.), and it'll come through directly as an issue.
 
-👉 [Submit an Airport Request](https://github.com/machpoint82/geofs-gate-spawner/issues/new?template=airport_request.md)
+👉  [Submit an Airport Request](https://github.com/machpoint82/geofs-gate-spawner/issues/new?template=airport_request.md)
+
+ 👉 [Request a feature here](https://github.com/machpoint82/geofs-gate-spawner/issues/new?template=feature_request.md)
 
 A couple of honesty notes while we're at it:
 - Gate coordinates come from open, community-maintained airport data, not an official survey — the vast majority line up correctly, but a small number of stands may be positioned slightly off, or the aircraft may creep forward a little after spawning before settling. If you spot one that's clearly wrong, please open an issue with the gate name so it can be fixed.
@@ -50,7 +52,7 @@ A couple of honesty notes while we're at it:
 ## Installation
 
 1. Install [Tampermonkey](https://www.tampermonkey.net/) for your browser.
-2. Click on [`geofs-gate-spawner.user.js`](geofs-gate-spawner.user.js) in this repo, then click **Raw** — Tampermonkey will prompt you to install it.
+2. Click on [`geofs-gate-spawner.user.js`](geofs-gate-spawner.user.js) in this repo, then click **Raw** — Tampermonkey will prompt you to install it. Or go to tampermonkey then create a new userscript then copy everything inside the [file](geofs-gates-spawner.user.js), remove everything on tampermonkey blank new script file and paste the copied contents then save. Make sure you have auto updates enabled so the script auto update for newer versions.
 3. Open GeoFS. A small icon appears in the bottom-right corner — click it to expand the panel.
 
 ## How to use it
@@ -61,10 +63,6 @@ A couple of honesty notes while we're at it:
 4. Type part of a gate number in the search box, or scroll the list.
 5. Click **Spawn at gate** (or press **Enter** in the search box to jump straight to the top match).
 
-## Contributing / reporting a bad gate
-
-If you find a gate that spawns you in the wrong spot, open an issue on this repo with the airport ICAO and gate name — it helps keep the data accurate for everyone using it at events.
-
 ## License
 
-See [LICENSE.md](LICENSE.md) — free to use and share, non-commercial, and not to be modified/redistributed as a modified version.
+See [LICENSE.md](LICENSE.md)

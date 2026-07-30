@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GeoFS Gate Spawner
 // @namespace    https://github.com/machpoint82/geofs-gate-spawner
-// @version      3.0.0
+// @version      3.1.0
 // @description  Spawn parked at a real gate/stand at supported airports, with aircraft-category filters. Docks a small button next to your other GeoFS addon pads.
 // @author       machpoint82
 // @match        https://www.geo-fs.com/geofs.php*
@@ -138,10 +138,6 @@
     }
 
     // ------------------------------------------------------------------
-    // DOCK BUTTON: try to sit inside GeoFS's own .geofs-ui-right control-pad
-    // row (same place Radio/Random Jobs/etc live). Falls back to a fixed
-    // floating button if that row can't be found, so the script is never
-    // silently invisible on a GeoFS version/layout that differs.
     // ------------------------------------------------------------------
     function createPadButton() {
         const pad = document.createElement('div');
@@ -328,6 +324,9 @@
         document.querySelector('#gs-header .gs-close').addEventListener('click', closePanel);
         makeDraggable(root, document.getElementById('gs-header'));
         wireAirportCombo();
+        stopGeoFSKeys(document.getElementById('gs-airport-input'));
+        stopGeoFSKeys(document.getElementById('gs-search'));
+        stopGeoFSKeys(document.getElementById('gs-gate'));
     }
 
     // ------------------------------------------------------------------
@@ -506,7 +505,13 @@
         holdParkingBrakeOnSpawn();
         dockPadButton();
     }
-
+function stopGeoFSKeys(el) {
+    ['keydown', 'keyup', 'keypress'].forEach(type => {
+        el.addEventListener(type, e => {
+            e.stopPropagation();
+        }, true); // capture phase is safer
+    });
+}
     if (document.readyState === 'complete') {
         setTimeout(init, 1500);
     } else {

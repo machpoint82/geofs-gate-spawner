@@ -54,7 +54,7 @@ A couple of honesty notes while we're at it:
 ## Installation
 
 1. Install [Tampermonkey](https://www.tampermonkey.net/) for your browser.
-2. [Click here to install directly](https://raw.githubusercontent.com/machpoint82/geofs-gate-spawner/main/geofs-gate-spawner.user.js) 'If install link is not working, create a new [issue](https://github.com/machpoint82/geofs-gate-spawner/issues) and report it.
+2. [Click here to install directly](https://raw.githubusercontent.com/machpoint82/geofs-gate-spawner/main/geofs-gate-spawner.user.js) If install link is not working, create a new [issue](https://github.com/machpoint82/geofs-gate-spawner/issues) and report it.
 3. Open GeoFS. A small icon appears in the bottom-right corner — click it to expand the panel.
 
 ## How to use it

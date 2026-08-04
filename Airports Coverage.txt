@@ -1078,3 +1078,4 @@ ZHYC - Yichang Sanxia Airport
 ZJHK - Haikou Meilan International Airport
 ZJSY - Sanya Phoenix International Airport
 ZKPY - Pyongyang Sunan International Airport
+ZBAD - Beijing Daxing International Airport

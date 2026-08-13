@@ -1,4 +1,4 @@
-# [Install](https://raw.githubusercontent.com/machpoint82/geofs-gate-spawner/main/geofs-gate-spawner.user.js)
+# [Click here to Install/Update](https://raw.githubusercontent.com/machpoint82/geofs-gate-spawner/main/geofs-gate-spawner.user.js)
 
 <p align="center">
   <img src="preview.png" alt="Preview" width="800">
@@ -11,12 +11,12 @@
 
 <h1 align="center">GeoFS Gate Spawner</h1>
 
-<p align="center">Spawn parked at a real gate or stand at supported airports — no more taxiing 20 minutes from a random runway threshold.</p>
+<p align="center">Spawn parked at a real gate or stand at supported airports.</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Tampermonkey-Userscript-00485B?logo=tampermonkey&logoColor=white" alt="Tampermonkey userscript" />
   <img src="https://img.shields.io/badge/GeoFS-v3.9%20%7C%20v4.0-1d4ed8" alt="GeoFS v3.9 and v4.0" />
-  <img src="https://img.shields.io/badge/version-3.0.0-06b6d4" alt="Version 3.0.0" />
+  <img src="https://img.shields.io/badge/version-3.0.0-06b6d4" alt="Version 3.2.0" />
   <img src="https://img.shields.io/badge/License-%20%20%20%2F%20MIT--License-lightgrey" alt="License" />
 </p>
 
@@ -56,6 +56,8 @@ A couple of honesty notes while we're at it:
 1. Install [Tampermonkey](https://www.tampermonkey.net/) for your browser.
 2. [Click here to install directly](https://raw.githubusercontent.com/machpoint82/geofs-gate-spawner/main/geofs-gate-spawner.user.js) If install link is not working, create a new [issue](https://github.com/machpoint82/geofs-gate-spawner/issues) and report it.
 3. Open GeoFS. A small icon appears in the bottom-right corner — click it to expand the panel.
+4. In 3.2.0 Update, panel now shows on geofs home page.
+# Sometimes, gates might take a while to show or some gates won't show, try again, should work!
 
 ## How to use it
 

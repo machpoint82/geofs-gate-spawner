@@ -1,11 +1,13 @@
 // ==UserScript==
 // @name         GeoFS Gate Spawner
 // @namespace    https://github.com/machpoint82/geofs-gate-spawner
-// @version      3.1.0
-// @description  Spawn parked at a real gate/stand at supported airports, with aircraft-category filters. Docks a small button next to your other GeoFS addon pads.
+// @version      3.2.0
+// @description  Spawn parked at a real gate/stand at supported airports, with aircraft-category filters. Works both in-game and from the GeoFS homepage, so you can pick your gate before you even fly.
 // @author       machpoint82
 // @match        https://www.geo-fs.com/geofs.php*
 // @match        https://*.geo-fs.com/geofs.php*
+// @match        https://www.geo-fs.com/
+// @match        https://www.geo-fs.com/*
 // @icon         https://raw.githubusercontent.com/machpoint82/geofs-gate-spawner/main/icon.png
 // @updateURL    https://raw.githubusercontent.com/machpoint82/geofs-gate-spawner/main/geofs-gate-spawner.user.js
 // @downloadURL  https://raw.githubusercontent.com/machpoint82/geofs-gate-spawner/main/geofs-gate-spawner.user.js
@@ -20,21 +22,9 @@
 (function () {
     'use strict';
 
-    // ------------------------------------------------------------------
-    // CONFIG
-    // ------------------------------------------------------------------
     const GATES_URL = 'https://raw.githubusercontent.com/machpoint82/geofs-gate-spawner/refs/heads/main/gates.json';
     const ICON_URL = 'https://raw.githubusercontent.com/machpoint82/geofs-gate-spawner/main/icon.png';
 
-    // Used only if the fetch fails (offline, repo down, typo in URL, etc).
-    const EMBEDDED_SAMPLE = {
-        "TEST": [
-            { "name": "A1 (demo)", "lat": 51.4706123, "lon": -0.4548210, "heading": 273, "type": "gate", "airplane_types": ["heavy", "jets"], "width_code": "F", "operation_type": "airline" }
-        ]
-    };
-
-    // Aircraft-category / operation filters, built from the width_code and
-    // operation_type fields the extractor pulls from apt.dat rows 1300/1301.
     const FILTERS = [
         { key: 'codeF', label: 'A380 / 747 (Code F)', test: g => g.width_code === 'F' },
         { key: 'codeE', label: '777 / 787 (Code E)', test: g => g.width_code === 'E' },
@@ -47,13 +37,9 @@
     let activeFilters = new Set();
     let currentAirport = null;
 
-    // ------------------------------------------------------------------
-    // STYLES
-    // ------------------------------------------------------------------
     function injectStyles() {
         const style = document.createElement('style');
         style.textContent = `
-        /* --- Dock button: sits alongside other addons' pads (Radio, Random Jobs, etc) --- */
         .gs-pad {
             width: 46px !important; height: 46px !important;
             min-width: 46px; min-height: 46px;
@@ -64,12 +50,7 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.4);
         }
         .gs-pad img { width: 30px; height: 30px; border-radius: 6px; pointer-events: none; }
-
-        /* --- Fallback dock, only used if GeoFS's own pad row can't be found --- */
-        .gs-pad.gs-fallback-pad {
-            position: fixed; top: 64px; right: 14px; z-index: 999999;
-        }
-
+        .gs-pad.gs-fallback-pad { position: fixed; top: 64px; right: 14px; z-index: 999999; }
         #gs-root {
             position: fixed; top: 64px; right: 70px; z-index: 999999;
             width: 260px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -109,9 +90,7 @@
             border-radius: 8px; box-shadow: 0 8px 20px rgba(0,0,0,0.5);
         }
         #gs-airport-list.gs-open { display: block; }
-        #gs-airport-list .gs-airport-item {
-            padding: 7px 9px; font-size: 12.5px; color: #e5e7eb; cursor: pointer;
-        }
+        #gs-airport-list .gs-airport-item { padding: 7px 9px; font-size: 12.5px; color: #e5e7eb; cursor: pointer; }
         #gs-airport-list .gs-airport-item:hover,
         #gs-airport-list .gs-airport-item.gs-highlighted { background: #1d4ed8; }
         #gs-airport-list .gs-airport-empty { padding: 7px 9px; font-size: 12px; color: #94a3b8; }
@@ -137,8 +116,12 @@
         document.head.appendChild(style);
     }
 
-    // ------------------------------------------------------------------
-    // ------------------------------------------------------------------
+    function stopGeoFSKeys(el) {
+        ['keydown', 'keyup', 'keypress'].forEach(type => {
+            el.addEventListener(type, e => { e.stopPropagation(); }, true);
+        });
+    }
+
     function createPadButton() {
         const pad = document.createElement('div');
         pad.id = 'gs-pad';
@@ -162,17 +145,12 @@
         if (attempt < 20) {
             setTimeout(() => dockPadButton(attempt + 1), 500);
         } else {
-            // Never found GeoFS's own pad row -- fall back to a floating
-            // button so the script is still reachable rather than invisible.
             const pad = createPadButton();
             pad.classList.add('gs-fallback-pad');
             document.body.appendChild(pad);
         }
     }
 
-    // ------------------------------------------------------------------
-    // PANEL OPEN/CLOSE + DRAGGING
-    // ------------------------------------------------------------------
     function togglePanel() {
         const root = document.getElementById('gs-root');
         if (!root) return;
@@ -196,7 +174,7 @@
                 root.style.top = pos.top + 'px';
                 root.style.right = pos.right + 'px';
             }
-        } catch (e) { /* ignore, use CSS defaults */ }
+        } catch (e) { }
 
         header.addEventListener('mousedown', (e) => {
             if (e.target.closest('.gs-close')) return;
@@ -234,9 +212,6 @@
         });
     }
 
-    // ------------------------------------------------------------------
-    // DATA LOADING
-    // ------------------------------------------------------------------
     function loadGates() {
         GM_xmlhttpRequest({
             method: 'GET',
@@ -245,22 +220,19 @@
                 try {
                     gatesDB = JSON.parse(res.responseText);
                 } catch (e) {
-                    console.error('[Gate Spawner] Could not parse gates.json, using sample data.', e);
-                    gatesDB = EMBEDDED_SAMPLE;
+                    console.error('[Gate Spawner] Could not parse gates.json.', e);
+                    gatesDB = {};
                 }
                 populateAirportList();
             },
             onerror: function (e) {
-                console.error('[Gate Spawner] Could not fetch gates.json, using sample data.', e);
-                gatesDB = EMBEDDED_SAMPLE;
+                console.error('[Gate Spawner] Could not fetch gates.json.', e);
+                gatesDB = {};
                 populateAirportList();
             }
         });
     }
 
-    // ------------------------------------------------------------------
-    // UI
-    // ------------------------------------------------------------------
     function buildUI() {
         const root = document.createElement('div');
         root.id = 'gs-root';
@@ -276,16 +248,12 @@
                     <input id="gs-airport-input" type="text" placeholder="Search ICAO, e.g. EGLL" autocomplete="off" />
                     <div id="gs-airport-list"></div>
                 </div>
-
                 <label class="gs-label">Search gate</label>
                 <input id="gs-search" type="text" placeholder="e.g. 209R" />
-
                 <label class="gs-label">Filters</label>
                 <div id="gs-filters"></div>
-
                 <label class="gs-label">Gate</label>
                 <select id="gs-gate" size="6"></select>
-
                 <button id="gs-spawn">Spawn at gate</button>
                 <div id="gs-status"></div>
             </div>
@@ -329,9 +297,6 @@
         stopGeoFSKeys(document.getElementById('gs-gate'));
     }
 
-    // ------------------------------------------------------------------
-    // AIRPORT COMBOBOX (custom-built, doubles as an ICAO search box)
-    // ------------------------------------------------------------------
     function wireAirportCombo() {
         const input = document.getElementById('gs-airport-input');
         const list = document.getElementById('gs-airport-list');
@@ -436,27 +401,19 @@
         status.textContent = `${filtered.length} of ${gates.length} spots match`;
     }
 
-    // ------------------------------------------------------------------
-    // ANTI-CREEP: hold the parking brake for a few seconds right after a
-    // fresh gate spawn. Best-effort -- GeoFS's internal physics aren't
-    // something we control directly, so this helps in most cases but
-    // isn't guaranteed for every aircraft/gate.
-    // ------------------------------------------------------------------
     function holdParkingBrakeOnSpawn() {
         let justSpawned = false;
-        try { justSpawned = sessionStorage.getItem('gs_just_spawned') === '1'; } catch (e) { /* ignore */ }
+        try { justSpawned = sessionStorage.getItem('gs_just_spawned') === '1'; } catch (e) { }
         if (!justSpawned) return;
-        try { sessionStorage.removeItem('gs_just_spawned'); } catch (e) { /* ignore */ }
+        try { sessionStorage.removeItem('gs_just_spawned'); } catch (e) { }
 
         const HOLD_MS = 4000;
-
         function dispatch(type) {
             window.dispatchEvent(new KeyboardEvent(type, {
                 key: ' ', code: 'Space', keyCode: 32, which: 32,
                 bubbles: true, cancelable: true
             }));
         }
-
         dispatch('keydown');
         setTimeout(() => dispatch('keyup'), HOLD_MS);
     }
@@ -467,7 +424,7 @@
                 const id = unsafeWindow.geofs.aircraft.instance.id;
                 if (id) return id;
             }
-        } catch (e) { /* ignore, fall through */ }
+        } catch (e) { }
         const params = new URLSearchParams(window.location.search);
         return params.get('aircraft') || 'c172';
     }
@@ -483,7 +440,7 @@
         }
 
         const aircraft = getCurrentAircraft();
-        const url = new URL(window.location.origin + window.location.pathname);
+        const url = new URL(window.location.origin + '/geofs.php');
         url.searchParams.set('aircraft', aircraft);
         url.searchParams.set('lat', gate.lat);
         url.searchParams.set('lon', gate.lon);
@@ -491,13 +448,10 @@
         url.searchParams.set('alt', 0);
 
         status.textContent = `Spawning at ${icao} ${gate.name}…`;
-        try { sessionStorage.setItem('gs_just_spawned', '1'); } catch (e) { /* ignore */ }
+        try { sessionStorage.setItem('gs_just_spawned', '1'); } catch (e) { }
         window.location.href = url.toString();
     }
 
-    // ------------------------------------------------------------------
-    // INIT
-    // ------------------------------------------------------------------
     function init() {
         injectStyles();
         buildUI();
@@ -505,13 +459,7 @@
         holdParkingBrakeOnSpawn();
         dockPadButton();
     }
-function stopGeoFSKeys(el) {
-    ['keydown', 'keyup', 'keypress'].forEach(type => {
-        el.addEventListener(type, e => {
-            e.stopPropagation();
-        }, true); // capture phase is safer
-    });
-}
+
     if (document.readyState === 'complete') {
         setTimeout(init, 1500);
     } else {

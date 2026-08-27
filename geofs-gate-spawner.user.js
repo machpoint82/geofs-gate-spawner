@@ -1,13 +1,11 @@
 // ==UserScript==
 // @name         GeoFS Gate Spawner
 // @namespace    https://github.com/machpoint82/geofs-gate-spawner
-// @version      3.2.0
-// @description  Spawn parked at a real gate/stand at supported airports, with aircraft-category filters. Works both in-game and from the GeoFS homepage, so you can pick your gate before you even fly.
+// @version      3.4.0
+// @description  Spawn parked at a real gate/stand at supported airports, with aircraft-category filters. No-reload instant spawn when in-game.
 // @author       machpoint82
 // @match        https://www.geo-fs.com/geofs.php*
 // @match        https://*.geo-fs.com/geofs.php*
-// @match        https://www.geo-fs.com/
-// @match        https://www.geo-fs.com/*
 // @icon         https://raw.githubusercontent.com/machpoint82/geofs-gate-spawner/main/icon.png
 // @updateURL    https://raw.githubusercontent.com/machpoint82/geofs-gate-spawner/main/geofs-gate-spawner.user.js
 // @downloadURL  https://raw.githubusercontent.com/machpoint82/geofs-gate-spawner/main/geofs-gate-spawner.user.js
@@ -24,6 +22,7 @@
 
     const GATES_URL = 'https://raw.githubusercontent.com/machpoint82/geofs-gate-spawner/refs/heads/main/gates.json';
     const ICON_URL = 'https://raw.githubusercontent.com/machpoint82/geofs-gate-spawner/main/icon.png';
+    const MAX_FETCH_RETRIES = 4;
 
     const FILTERS = [
         { key: 'codeF', label: 'A380 / 747 (Code F)', test: g => g.width_code === 'F' },
@@ -116,6 +115,60 @@
         document.head.appendChild(style);
     }
 
+    function destinationPoint(lat, lon, bearingDeg, distM) {
+        const R = 6371000;
+        const lat1 = lat * Math.PI / 180;
+        const lon1 = lon * Math.PI / 180;
+        const brng = bearingDeg * Math.PI / 180;
+        const dR = distM / R;
+        const lat2 = Math.asin(Math.sin(lat1) * Math.cos(dR) + Math.cos(lat1) * Math.sin(dR) * Math.cos(brng));
+        const lon2 = lon1 + Math.atan2(
+            Math.sin(brng) * Math.sin(dR) * Math.cos(lat1),
+            Math.cos(dR) - Math.sin(lat1) * Math.sin(lat2)
+        );
+        return { lat: lat2 * 180 / Math.PI, lon: lon2 * 180 / Math.PI };
+    }
+
+    function tryNoReloadSpawn(gate) {
+        try {
+            const ac = unsafeWindow.geofs.aircraft.instance;
+            if (!ac || !ac.place) return false;
+
+            const backBearing = (gate.heading + 180) % 360;
+            const spawnPoint = destinationPoint(gate.lat, gate.lon, backBearing, 6);
+
+            let groundAlt = 0;
+            try {
+                const ground = unsafeWindow.geofs.getGroundAltitude([spawnPoint.lat, spawnPoint.lon, 100]);
+                if (ground && ground.location) groundAlt = ground.location[2];
+            } catch (e) { }
+
+            ac.place([spawnPoint.lat, spawnPoint.lon, groundAlt], [gate.heading, 0, 0]);
+
+            if (ac.rigidBody) {
+                ac.rigidBody.v_linearVelocity = [0, 0, 0];
+                ac.rigidBody.v_angularVelocity = [0, 0, 0];
+                ac.rigidBody.v_totalForce = [0, 0, 0];
+                ac.rigidBody.v_totalTorque = [0, 0, 0];
+            }
+            ac.groundContact = true;
+
+            const HOLD_MS = 4000;
+            function dispatch(type) {
+                window.dispatchEvent(new KeyboardEvent(type, {
+                    key: ' ', code: 'Space', keyCode: 32, which: 32,
+                    bubbles: true, cancelable: true
+                }));
+            }
+            dispatch('keydown');
+            setTimeout(() => dispatch('keyup'), HOLD_MS);
+
+            return true;
+        } catch (e) {
+            console.error('[Gate Spawner] No-reload spawn failed, falling back to reload.', e);
+            return false;
+        }
+    }
     function stopGeoFSKeys(el) {
         ['keydown', 'keyup', 'keypress'].forEach(type => {
             el.addEventListener(type, e => { e.stopPropagation(); }, true);
@@ -212,25 +265,42 @@
         });
     }
 
-    function loadGates() {
+    function loadGates(attempt = 0) {
+        const status = document.getElementById('gs-status');
         GM_xmlhttpRequest({
             method: 'GET',
             url: GATES_URL,
             onload: function (res) {
+                let parsed = null;
                 try {
-                    gatesDB = JSON.parse(res.responseText);
+                    parsed = JSON.parse(res.responseText);
                 } catch (e) {
                     console.error('[Gate Spawner] Could not parse gates.json.', e);
-                    gatesDB = {};
                 }
+                if (!parsed || Object.keys(parsed).length === 0) {
+                    retryLoad(attempt, 'empty or invalid response');
+                    return;
+                }
+                gatesDB = parsed;
                 populateAirportList();
             },
             onerror: function (e) {
                 console.error('[Gate Spawner] Could not fetch gates.json.', e);
-                gatesDB = {};
-                populateAirportList();
+                retryLoad(attempt, 'network error');
             }
         });
+    }
+
+    function retryLoad(attempt, reason) {
+        const status = document.getElementById('gs-status');
+        if (attempt < MAX_FETCH_RETRIES) {
+            if (status) status.textContent = `Airport data didn't load (${reason}), retrying…`;
+            setTimeout(() => loadGates(attempt + 1), 1500 * (attempt + 1));
+        } else {
+            if (status) status.textContent = 'Could not load airport data after several tries. Try reopening the panel.';
+            gatesDB = {};
+            populateAirportList();
+        }
     }
 
     function buildUI() {
@@ -330,6 +400,7 @@
             currentAirport = icao;
             input.value = `${icao} (${(gatesDB[icao] || []).length} spots)`;
             list.classList.remove('gs-open');
+            GM_setValue('gs_last_airport', icao);
             populateGateList();
         }
 
@@ -361,7 +432,10 @@
             input.placeholder = 'No airports loaded';
             return;
         }
-        if (!currentAirport || !gatesDB[currentAirport]) {
+        const remembered = GM_getValue('gs_last_airport', null);
+        if (remembered && gatesDB[remembered]) {
+            currentAirport = remembered;
+        } else if (!currentAirport || !gatesDB[currentAirport]) {
             currentAirport = icaos[0];
         }
         input.value = `${currentAirport} (${gatesDB[currentAirport].length} spots)`;
@@ -439,8 +513,13 @@
             return;
         }
 
+        if (tryNoReloadSpawn(gate)) {
+            status.textContent = `Spawned at ${icao} ${gate.name}.`;
+            return;
+        }
+
+        const url = new URL(window.location.href);
         const aircraft = getCurrentAircraft();
-        const url = new URL(window.location.origin + '/geofs.php');
         url.searchParams.set('aircraft', aircraft);
         url.searchParams.set('lat', gate.lat);
         url.searchParams.set('lon', gate.lon);

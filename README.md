@@ -1,5 +1,7 @@
 # [Click here to Install/Update](https://raw.githubusercontent.com/machpoint82/geofs-gate-spawner/main/geofs-gate-spawner.user.js)
 
+## Update 3.4.0, Spawn without GeoFs tab reloading, you get teleported directly to the stand
+
 <p align="center">
   <img src="preview.png" alt="Preview" width="800">
 </p>
@@ -24,11 +26,10 @@
 
 ## What it does
 
-Adds a small in-game panel to GeoFS where you can pick an airport and gate/stand, optionally filter by aircraft category (A380/747-capable, cargo, GA, etc.), and spawn parked at the exact real-world coordinates and heading — pulled straight from official airport data, not guessed.
+Adds a small in-game panel to GeoFS where you can pick an airport and gate/stand and spawn there
 
 ## Features
 
-- Real gate/stand coordinates and headings sourced from X-Plane's open airport database
 - Search box — type a gate number and hit **Enter** to jump straight there
 - Filters for Code F (A380/747), Code E (777/787), heavy-capable, cargo, and general aviation stands
 - The panel lives as a small square always-visible in the bottom right corner — click it to expand/collapse. No setup required.
@@ -47,17 +48,19 @@ Want to see a specific airport added to the gate spawner? Submit an Airport Requ
 
  👉 [Request a feature here](https://github.com/machpoint82/geofs-gate-spawner/issues/new?template=feature_request.md)
 
-A couple of honesty notes while we're at it:
-- Gate coordinates come from open, community-maintained airport data, not an official survey — the vast majority line up correctly, but a small number of stands may be positioned slightly off, or the aircraft may creep forward a little after spawning before settling. If you spot one that's clearly wrong, please open an issue with the gate name so it can be fixed.
-- Some parking spots in the source data don't include aircraft-category info, so they won't show up under any filter chip — that doesn't mean they're unusable, just unclassified.
+- ⚠️ Gate coordinates come from open, community-maintained airport data, — the vast majority line up correctly, but a small number of stands may be positioned slightly off, or the aircraft may creep forward a little after spawning before settling.
+- ⚠️ Some parking spots in the source data don't include aircraft-category info, so they won't show up under any filter chip — that doesn't mean they're unusable, just unclassified.
 
 ## Installation
 
 1. Install [Tampermonkey](https://www.tampermonkey.net/) for your browser.
 2. [Click here to install directly](https://raw.githubusercontent.com/machpoint82/geofs-gate-spawner/main/geofs-gate-spawner.user.js) If install link is not working, create a new [issue](https://github.com/machpoint82/geofs-gate-spawner/issues) and report it.
 3. Open GeoFS. A small icon appears in the bottom-right corner — click it to expand the panel.
-4. In 3.2.0 Update, panel now shows on geofs home page.
-# Sometimes, gates might take a while to show or some gates won't show, try again, should work!
+
+# ⚠️ Sometimes, gates might take a while to show or some gates won't show, try again, should work!
+# ⚠️ Some airports might not have gates  because they are not commercial airports, but if there is a commercial airport with no gates at all, open a new issue and it will get fixed
+
+---
 
 ## How to use it
 
@@ -70,3 +73,6 @@ A couple of honesty notes while we're at it:
 ## License
 
 See [LICENSE.md](LICENSE.md)
+
+## Credits
+- Gates and stand from [X-Plane gateway](https://gateway.x-plane.com/)

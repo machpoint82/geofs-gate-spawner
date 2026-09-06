@@ -18,7 +18,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Tampermonkey-Userscript-00485B?logo=tampermonkey&logoColor=white" alt="Tampermonkey userscript" />
   <img src="https://img.shields.io/badge/GeoFS-v3.9%20%7C%20v4.0-1d4ed8" alt="GeoFS v3.9 and v4.0" />
-  <img src="https://img.shields.io/badge/version-3.0.0-06b6d4" alt="Version 3.2.0" />
+  <img src="https://img.shields.io/badge/version-3.0.0-06b6d4" alt="Version 3.4.0" />
   <img src="https://img.shields.io/badge/License-%20%20%20%2F%20MIT--License-lightgrey" alt="License" />
 </p>
 

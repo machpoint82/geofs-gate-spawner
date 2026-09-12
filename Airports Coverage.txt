@@ -242,6 +242,7 @@ UBBB - Heydar Aliyev International Airport
 UGTB - Tbilisi International Airport
 UKBB - Boryspil International Airport
 ULLI - Pulkovo Airport
+UMMS - Minsk National Airport
 UTTT - Tashkent International Airport
 UUDD - Domodedovo International Airport
 UUEE - Sheremetyevo International Airport

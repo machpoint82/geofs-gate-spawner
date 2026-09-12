@@ -2,6 +2,8 @@
 
 ## Update 3.4.0, Spawn without GeoFs tab reloading, you get teleported directly to the stand
 
+## Due to Academic reasons, more airports as well as updates will not be added until late december.
+
 <p align="center">
   <img src="preview.png" alt="Preview" width="800">
 </p>

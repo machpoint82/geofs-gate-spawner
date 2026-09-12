@@ -324435,5 +324435,419 @@
       "operation_type": "airline"
     }
   ],
-  "KADW": []
+  "KADW": [],
+  "UMMS": [
+    {
+      "name": "9",
+      "lat": 53.8897446,
+      "lon": 28.0303407,
+      "heading": 48.31,
+      "type": "gate",
+      "airplane_types": [
+        "heavy",
+        "jets"
+      ],
+      "width_code": "E",
+      "operation_type": "airline"
+    },
+    {
+      "name": "8",
+      "lat": 53.8901346,
+      "lon": 28.0295878,
+      "heading": 48.31,
+      "type": "gate",
+      "airplane_types": [
+        "heavy",
+        "jets"
+      ],
+      "width_code": "D",
+      "operation_type": "airline"
+    },
+    {
+      "name": "63",
+      "lat": 53.8925143,
+      "lon": 28.0448944,
+      "heading": 49.48,
+      "type": "gate",
+      "airplane_types": [
+        "heavy"
+      ],
+      "width_code": "D",
+      "operation_type": "airline"
+    },
+    {
+      "name": "62",
+      "lat": 53.8931521,
+      "lon": 28.0439413,
+      "heading": 49.48,
+      "type": "gate",
+      "airplane_types": [
+        "heavy"
+      ],
+      "width_code": "D",
+      "operation_type": "airline"
+    },
+    {
+      "name": "17",
+      "lat": 53.8897139,
+      "lon": 28.0360547,
+      "heading": 300.56,
+      "type": "gate",
+      "airplane_types": [
+        "jets"
+      ],
+      "width_code": "C",
+      "operation_type": "airline"
+    },
+    {
+      "name": "16",
+      "lat": 53.8892634,
+      "lon": 28.0356226,
+      "heading": 314.49,
+      "type": "gate",
+      "airplane_types": [
+        "jets"
+      ],
+      "width_code": "C",
+      "operation_type": "airline"
+    },
+    {
+      "name": "15",
+      "lat": 53.8889056,
+      "lon": 28.0349817,
+      "heading": 331.1,
+      "type": "gate",
+      "airplane_types": [
+        "jets"
+      ],
+      "width_code": "C",
+      "operation_type": "airline"
+    },
+    {
+      "name": "14",
+      "lat": 53.8887148,
+      "lon": 28.0341295,
+      "heading": 343.71,
+      "type": "gate",
+      "airplane_types": [
+        "jets"
+      ],
+      "width_code": "C",
+      "operation_type": "airline"
+    },
+    {
+      "name": "13",
+      "lat": 53.8886327,
+      "lon": 28.0332688,
+      "heading": 357.48,
+      "type": "gate",
+      "airplane_types": [
+        "jets"
+      ],
+      "width_code": "C",
+      "operation_type": "airline"
+    },
+    {
+      "name": "12",
+      "lat": 53.8886573,
+      "lon": 28.0324225,
+      "heading": 10.95,
+      "type": "gate",
+      "airplane_types": [
+        "jets"
+      ],
+      "width_code": "C",
+      "operation_type": "airline"
+    },
+    {
+      "name": "11",
+      "lat": 53.8888693,
+      "lon": 28.0316277,
+      "heading": 25.77,
+      "type": "gate",
+      "airplane_types": [
+        "jets"
+      ],
+      "width_code": "C",
+      "operation_type": "airline"
+    },
+    {
+      "name": "10",
+      "lat": 53.8893161,
+      "lon": 28.030947,
+      "heading": 43.75,
+      "type": "gate",
+      "airplane_types": [
+        "jets"
+      ],
+      "width_code": "C",
+      "operation_type": "airline"
+    },
+    {
+      "name": "9B",
+      "lat": 53.8895872,
+      "lon": 28.0305403,
+      "heading": 48.31,
+      "type": "gate",
+      "airplane_types": [
+        "heavy",
+        "jets"
+      ],
+      "width_code": "C",
+      "operation_type": "airline"
+    },
+    {
+      "name": "9A",
+      "lat": 53.8898382,
+      "lon": 28.0301637,
+      "heading": 48.31,
+      "type": "gate",
+      "airplane_types": [
+        "heavy",
+        "jets"
+      ],
+      "width_code": "C",
+      "operation_type": "airline"
+    },
+    {
+      "name": "7",
+      "lat": 53.8904624,
+      "lon": 28.0291231,
+      "heading": 48.31,
+      "type": "gate",
+      "airplane_types": [
+        "heavy",
+        "jets"
+      ],
+      "width_code": "C",
+      "operation_type": "airline"
+    },
+    {
+      "name": "6",
+      "lat": 53.890705,
+      "lon": 28.0287605,
+      "heading": 48.31,
+      "type": "gate",
+      "airplane_types": [
+        "heavy",
+        "jets"
+      ],
+      "width_code": "C",
+      "operation_type": "airline"
+    },
+    {
+      "name": "5",
+      "lat": 53.8909463,
+      "lon": 28.0283949,
+      "heading": 48.31,
+      "type": "gate",
+      "airplane_types": [
+        "heavy",
+        "jets"
+      ],
+      "width_code": "C",
+      "operation_type": "airline"
+    },
+    {
+      "name": "4",
+      "lat": 53.8911904,
+      "lon": 28.0280279,
+      "heading": 48.31,
+      "type": "gate",
+      "airplane_types": [
+        "heavy",
+        "jets"
+      ],
+      "width_code": "C",
+      "operation_type": "airline"
+    },
+    {
+      "name": "3",
+      "lat": 53.8914373,
+      "lon": 28.0276536,
+      "heading": 48.31,
+      "type": "gate",
+      "airplane_types": [
+        "heavy",
+        "jets"
+      ],
+      "width_code": "C",
+      "operation_type": "airline"
+    },
+    {
+      "name": "41A",
+      "lat": 53.8829433,
+      "lon": 28.0402377,
+      "heading": 48.26,
+      "type": "gate",
+      "airplane_types": [
+        "jets",
+        "turboprops"
+      ],
+      "width_code": "C",
+      "operation_type": "airline"
+    },
+    {
+      "name": "41B",
+      "lat": 53.8831781,
+      "lon": 28.0398708,
+      "heading": 48.26,
+      "type": "gate",
+      "airplane_types": [
+        "jets",
+        "turboprops"
+      ],
+      "width_code": "C",
+      "operation_type": "airline"
+    },
+    {
+      "name": "41",
+      "lat": 53.8831293,
+      "lon": 28.0401785,
+      "heading": 48.26,
+      "type": "gate",
+      "airplane_types": [
+        "jets",
+        "turboprops"
+      ],
+      "width_code": "C",
+      "operation_type": "cargo"
+    },
+    {
+      "name": "40",
+      "lat": 53.8836478,
+      "lon": 28.0393699,
+      "heading": 48.26,
+      "type": "gate",
+      "airplane_types": [
+        "jets",
+        "turboprops"
+      ],
+      "width_code": "C",
+      "operation_type": "cargo"
+    },
+    {
+      "name": "39",
+      "lat": 53.8841012,
+      "lon": 28.0386717,
+      "heading": 48.26,
+      "type": "gate",
+      "airplane_types": [
+        "jets",
+        "turboprops"
+      ],
+      "width_code": "C",
+      "operation_type": "cargo"
+    },
+    {
+      "name": "38",
+      "lat": 53.8845802,
+      "lon": 28.0379931,
+      "heading": 48.26,
+      "type": "gate",
+      "airplane_types": [
+        "jets",
+        "turboprops"
+      ],
+      "width_code": "C",
+      "operation_type": "cargo"
+    },
+    {
+      "name": "37",
+      "lat": 53.8850964,
+      "lon": 28.0371845,
+      "heading": 48.26,
+      "type": "gate",
+      "airplane_types": [
+        "jets",
+        "turboprops"
+      ],
+      "width_code": "C",
+      "operation_type": "cargo"
+    },
+    {
+      "name": "61",
+      "lat": 53.8843363,
+      "lon": 28.0432618,
+      "heading": 49.63,
+      "type": "gate",
+      "airplane_types": [
+        "heavy",
+        "jets",
+        "turboprops"
+      ],
+      "width_code": "D",
+      "operation_type": "military"
+    },
+    {
+      "name": "60",
+      "lat": 53.8848618,
+      "lon": 28.0424374,
+      "heading": 49.63,
+      "type": "gate",
+      "airplane_types": [
+        "heavy",
+        "jets",
+        "turboprops"
+      ],
+      "width_code": "D",
+      "operation_type": "military"
+    },
+    {
+      "name": "59",
+      "lat": 53.8854035,
+      "lon": 28.0415932,
+      "heading": 49.63,
+      "type": "gate",
+      "airplane_types": [
+        "heavy",
+        "jets",
+        "turboprops"
+      ],
+      "width_code": "D",
+      "operation_type": "military"
+    },
+    {
+      "name": "33",
+      "lat": 53.88299,
+      "lon": 28.0452368,
+      "heading": 47.81,
+      "type": "gate",
+      "airplane_types": [
+        "heavy",
+        "jets",
+        "turboprops"
+      ],
+      "width_code": "C",
+      "operation_type": "military"
+    },
+    {
+      "name": "34",
+      "lat": 53.8832975,
+      "lon": 28.0447484,
+      "heading": 47.81,
+      "type": "gate",
+      "airplane_types": [
+        "heavy",
+        "jets",
+        "turboprops"
+      ],
+      "width_code": "C",
+      "operation_type": "military"
+    },
+    {
+      "name": "35",
+      "lat": 53.883613,
+      "lon": 28.0442672,
+      "heading": 47.81,
+      "type": "gate",
+      "airplane_types": [
+        "heavy",
+        "jets",
+        "turboprops"
+      ],
+      "width_code": "C",
+      "operation_type": "military"
+    }
+  ]
 }
